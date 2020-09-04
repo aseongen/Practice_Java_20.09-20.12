@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 히카리 커넥션 풀 빈 등록 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/> -->
+		<property name="driverClassName"
+			value="oracle.jdbc.OracleDriver" />
+		<property name="jdbcUrl"
+			value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="week" />
+		<property name="password" value="week" />
+	</bean>
+
+	<!-- 히카리 데이터 소스 빈 등록 -->
+	<!-- HikariCP configuration -->
+	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+		<!-- sessionFactory에게 위치를 알려줘야한다. -->
+		<property name="mapperLocations"
+			value="classpath:/mappers/**/*Mapper.xml" />
+		<!-- 히카리데이터소스 빈 등록의 id를 setter 주입으로 등록 -->
+		<!-- spring템플릿 or JDBC템플릿 중 1개 선택해서 보통사용 -->
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache"><!-- clearCache는 임시메모리를 깨끗이 지운다. -->
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>	<!-- 생성자를 통한 의존성 DI설정. constructor는 생성자를 말한다. ref가 bean의 id를 호출하는것이다. -->
+	</bean>
+	
+	
+	
+		<!-- 마이바티스 xml 파일을 빈으로 등록하기 위한 스캔 설정 -->
+	<mybatis-spring:scan base-package="com.spring.mvc.board.repository"/>
+	
+
+</beans>
