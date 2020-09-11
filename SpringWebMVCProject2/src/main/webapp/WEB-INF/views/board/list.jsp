@@ -54,7 +54,10 @@ header.masthead {
 								<td>${b.boardNo}</td>
 								<td>${b.writer}</td>
 
-								<td><a style="margin-top: 0; height: 40px; color: orange;" href="<c:url value='/board/content/${b.boardNo}' />">
+								<td><a style="margin-top: 0; height: 40px; color: orange;" 
+								href="<c:url value='/board/content/${b.boardNo}' />"> 
+								<!-- <c:url value='board/content?boardNo='/> -->
+								
 										${b.title}
 									</a>
 								</td>
