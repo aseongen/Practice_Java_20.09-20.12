@@ -127,6 +127,16 @@ header.masthead {
 	} else if(result === "delSuccess") {
 		alert("게시글 삭제가 완료되었습니다.");
 	}
+	
+	//start jQuery
+	$(function(){
+		//목록 개수가 변동하는 이벤트 처리
+		$("#count-per-page .btn-izone").click(function(){
+			
+			
+		});
+		
+	});
 
 </script>
 

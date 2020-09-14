@@ -21,3 +21,6 @@ increment by 1
 nocache;
 --인서트할때는 싹다집어넣어줘야합니다.
 
+select *
+from mvc_board
+order by board_no desc;
