@@ -25,5 +25,8 @@
 	
 		<!-- 마이바티스 xml 파일을 빈으로 등록하기 위한 스캔 설정 -->
 	<mybatis-spring:scan base-package="com.spring.mvc.board.repository"/>
+	<mybatis-spring:scan base-package="com.spring.mvc.user.repository"/>
+	
+	
 
 </beans>

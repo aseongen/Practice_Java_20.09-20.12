@@ -6,7 +6,7 @@
 
 	<!-- DB컬럼명과 VO 클래스의 필드명 매핑작업 -->
 	<resultMap id="BoardMap"
-		type="com.spirng.mvc.board.model.BoardVO">
+		type="com.spring.mvc.board.model.BoardVO">
 		<id property="boardNo" column="board_no" />
 		<result property="title" column="title" />
 		<result property="content" column="content" />
@@ -15,6 +15,7 @@
 		<result property="viewCnt" column="view_cnt" />
 
 	</resultMap>
+	 
 	<insert id="insert"> <!-- 이전에는 ParameterType을 지정해주었다. 지금은 x -->
 		INSERT INTO mvc_board
 		(board_no, title, content, writer, reg_date)
