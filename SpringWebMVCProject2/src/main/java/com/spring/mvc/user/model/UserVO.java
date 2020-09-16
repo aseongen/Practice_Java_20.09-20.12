@@ -14,9 +14,6 @@ public class UserVO {
 	private String name;
 	private Date regDate;
 	
-	
-
-	
 	@Override
 	public String toString() {
 		return "UserVO [account=" + account + ", password=" + password + ", name=" + name + ", regDate=" + regDate + "]";
