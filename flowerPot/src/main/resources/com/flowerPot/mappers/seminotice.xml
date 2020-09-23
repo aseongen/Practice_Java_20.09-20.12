@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.flowerPot.semiadmin.repository.ISemiNoticeDAO">
+
+ <resultMap  id="SemiMap"
+  type="com.flowerPot.semiadmin.model.SemiNoticeVO">
+  
+  <id property="sBno" column="s_bno"/>
+  <id property="sTitle" column="s_title"/>
+  <id property="sContent" column="s_content"/>
+  <id property="sWriter" column="s_writer"/>
+  <id property="sDate" column="s_date"/>
+
+  </resultMap>
+  
+  <!--  { 공지사항 게시글 목록 가져오기  -->
+  <select id ="getArticles" resultMap="SemiMap">
+  select * 
+  from semi_notice
+  order by s_bno asc
+  </select>
+
+  <!--  {공지사항 게시글 삭제하기  -->
+  <delete id ="delete">
+  delete 
+  from semi_notice 
+  where s_bno = #{sBno}
+  </delete>
+  
+   <resultMap  id="SemiReviewMap" type="com.flowerPot.semiadmin.model.SemiReviewVO">
+  
+  <id property="ono" column="ono"/>
+  <id property="mno" column="mno"/>
+  <id property="cno" column="cno"/>
+  <id property="orderNum" column="order_num"/>
+  <id property="amount" column="amount"/>
+  <id property="state" column="state"/>
+  <id property="date" column="regdate"/>
+  <id property="deliverState" column="deliver_state"/>
+  <id property="memberRank" column="member_rank"/>
+  <id property="point" column="point"/>
+  <id property="coupon" column="coupon"/>
+
+  </resultMap>
+  
+  <!-- { Review 후기  }  -->
+  <select id ="getReviewArticles" resultMap="SemiReviewMap" >
+    select * 
+    from f_orderProduct
+    order by ono asc
+  </select>
+  
+ <!-- { inventory 재고 현황  } -->
+ 
+ <select id ="getInvenArticles"  resultType="com.flowerPot.semiadmin.model.SemiInventoryVO">
+   select * 
+   from semi_inventory
+ </select>
+ 
+ <!-- {inventory submit 으로 재고 수량 추가하기 -->
+ <update id ="submitInven">
+   update  semi_inventory  
+   set stockNumber = stockNumber + #{amount}
+ </update>
+ 
+ <!-- inventory 판매 방식 변경 } -->
+ <update id ="invenChange">
+   update semi_inventory
+   set sellWay = #{change}
+ 
+ </update>
+ 
+</mapper>

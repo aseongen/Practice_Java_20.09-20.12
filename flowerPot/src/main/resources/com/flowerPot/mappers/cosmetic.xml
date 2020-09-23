@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.flowerPot.cosmetic.repository.CosmeticDao">
+	
+	<insert id="insertCosmetic">
+		insert into f_cosmetic (cno,name,type,code,brand,skinType,content,price,discountPersent,stockNumber,hits,regdate) 
+		values (cno_seq.nextval,#{name},#{type},#{code,jdbcType=VARCHAR},#{brand},#{skinType},#{content, jdbcType=VARCHAR},#{price},#{discountPersent, jdbcType=NUMERIC},#{stockNumber, jdbcType=NUMERIC},#{hits, jdbcType=NUMERIC},sysdate)
+		
+		<selectKey resultType="int" order="AFTER" keyProperty="cno">
+			select cno_seq.currval from dual
+			<!-- select cno from f_cosmetic where  -->
+		</selectKey>
+	</insert>	
+	
+	<delete id="deleteAll">
+		delete from f_cosmetic
+	</delete>
+	
+	<delete id="deleteByName">
+		delete from f_cosmetic where name= #{name}
+	</delete>
+	
+	<select id="selectCount" resultType="int">
+		select count(*) from f_cosmetic
+	</select>
+	
+	<select id="selectListCosmeticByCategory" resultType="com.flowerPot.vo.CosmeticVo">
+		select * from f_cosmetic 
+	</select>
+	
+	<select id="selectOneCosmeticByCno" resultType="com.flowerPot.vo.CosmeticVo">
+		select * from f_cosmetic where cno = #{cno, jdbcType=NUMERIC}
+	</select>
+</mapper>
