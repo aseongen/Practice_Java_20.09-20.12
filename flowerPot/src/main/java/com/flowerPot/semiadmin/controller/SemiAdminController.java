@@ -22,6 +22,14 @@ public class SemiAdminController {
 	@Autowired
 	private ISemiNoticeService service;
 
+// modal 기능 
+	@RequestMapping("/dashboard")
+	public void dashboard() {
+		System.out.println("dashboard 실행중..");
+		
+		
+	}
+	
 // { 공지사항 게시글 목록 가져오기
 	@RequestMapping("/semi_notice")
 	public void table_datatable(Model model) {
@@ -69,6 +77,29 @@ public class SemiAdminController {
 		
 		return "redirect:/semiadmin/inventory";
 	}
+
+// calendar 기능 
+	@RequestMapping("/calendar")
+	public void calendar() {
+		System.out.println("Calendar 실행중..");
+		
+		
+	}
+// modal 기능 
+	@RequestMapping("/modal")
+	public void modal() {
+		System.out.println("modal실행중..");
+		
+		
+	}
+// modal 기능 
+	@RequestMapping("/todolist")
+	public void todolist() {
+		System.out.println("todolist 실행중..");
+		
+		
+	}
+	
 
 
 }

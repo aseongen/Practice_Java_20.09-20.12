@@ -223,7 +223,7 @@
         <div class="card">
             <div class="card-header">전체공지사항  </div>   
             <div class="card-body">
-            
+
         <!-- table bordered -->
         <div class="table-responsive">
         <form method="post">
@@ -249,7 +249,7 @@
                 <td>${i.stockNumber}</td>
                 <td>
                    <input type ="text" name="plusStock" 
-                   style="border: 2px solid #0d6efd; width:50%;" >
+                           style="border: 2px solid #0d6efd; width:50%;" >
                 </td>
                 <td>
                     <select name ="${i.sellWay}">

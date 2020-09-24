@@ -24,10 +24,10 @@ import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-// Test for Controller
+//Test for Controller
 @WebAppConfiguration
 @ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/test-context.xml",
-    "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
+"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml","file:src/main/webapp/WEB-INF/spring/security-context.xml" })
 @Slf4j
 public class HomeControllerTest {
 
@@ -44,6 +44,12 @@ public class HomeControllerTest {
   @Test
   public void testConvert() throws Exception {
 	  System.out.println(mockMvc.perform(MockMvcRequestBuilders.get("/")).andReturn().getModelAndView().getModelMap());
+	  
+  }
+  
+  @Test
+  public void testConvert2() throws Exception {
+	  System.out.println(mockMvc.perform(MockMvcRequestBuilders.post("/kakaoPay2").param("cno", "1").param("cno", "1").param("cno", "1")).andReturn().getModelAndView().getModelMap());
 	  
   }
 

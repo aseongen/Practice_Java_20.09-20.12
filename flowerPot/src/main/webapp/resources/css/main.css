@@ -1796,6 +1796,13 @@ button.mfp-close {
   cursor: pointer;
 }
 
+.num-product-up,
+.num-product-down {
+	width: 45px;
+  height: 100%;
+  cursor: pointer;
+}
+
 .y-btn-num-product-up,
 .y-btn-num-product-down {
   width: 45px;
@@ -1930,7 +1937,7 @@ input.num-product::-webkit-inner-spin-button {
 
 .table-shopping-cart .column-1 {
   width: 133px;
-  padding-left: 50px;
+  padding-left: 5px;
 }
 
 .table-shopping-cart .column-2 {
@@ -1960,11 +1967,11 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .table-shopping-cart .table_row td {
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .table-shopping-cart .table_row td.column-1 {
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 }
 
 .table-shopping-cart .table_head th {
@@ -2962,9 +2969,9 @@ input.num-product::-webkit-inner-spin-button {
 
 /*---------------------------------------------*/
 .how-itemcart1 {
-  width: 60px;
+  width: 150px;
   position: relative;
-  margin-right: 20px;
+  margin-right: 0px;
   cursor: pointer;
 }
 

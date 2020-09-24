@@ -15,8 +15,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import com.flowerPot.attachFile.repository.AttachFileDao;
 import com.flowerPot.cosmetic.repository.CosmeticDao;
 import com.flowerPot.test.CosmeticTestCase;
+import com.flowerPot.vo.AttachFileVo;
 import com.flowerPot.vo.CosmeticVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +34,8 @@ public class CosmeticDaoTest {
 	private CosmeticDao cosmeticDao;
 	@Autowired
 	private CosmeticTestCase cosmeticTestCase;
+	@Autowired
+	private AttachFileDao attachFileDao;
 	
 	List<CosmeticVo> cList = null;
 	
@@ -66,10 +70,16 @@ public class CosmeticDaoTest {
 	@Test
 	public void selectOneCosmeticByCno() {
 		if(cList.size()!=0) {
+			AttachFileVo a = new AttachFileVo(1, 1, "uuidName", "originalFileName", "uploadFolderPath", "mappingURL","realName");
 			CosmeticVo cosmetic = cList.get(0);
-			CosmeticVo c1 = cosmeticDao.selectOneCosmeticByCno(cosmetic.getCno());
-			assertNotEquals(c1, null);
+			a.setCno(cosmetic.getCno());
+			attachFileDao.insertAttachFile(a);
+			attachFileDao.insertAttachFile(a);
+			CosmeticVo c1 = cosmeticDao.selectOneCosmeticByCno(cosmetic.getCno());  //cosmetic.getCno()
+			// assertNotEquals(c1, null);
 			log.info("c1:"+c1.toString());
+			log.info("alist:"+c1.getMappingList().toString());
+			log.info("alist:"+c1.getMappingList().size());
 		}
 	}
 }

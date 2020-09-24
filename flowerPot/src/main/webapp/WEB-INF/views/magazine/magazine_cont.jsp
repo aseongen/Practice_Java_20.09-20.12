@@ -52,10 +52,12 @@
 			<div class="col-md-4 col-lg-3 p-b-80">
 				<div class="side-menu">
 					<div class="bor17 of-hidden pos-relative">
+						<form action="#" method="post">
 						<input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="search" placeholder="Search">
-						<button class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04">
+						<button type="submit" class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04">
 							<i class="zmdi zmdi-search"></i>
 						</button>
+						</form>
 					</div>
 					<div class="p-t-55">
 						<h4 class="mtext-112 cl2 p-b-33">카테고리</h4>
@@ -67,8 +69,8 @@
 						</ul>
 					</div>
 					<div class="p-t-65">
-						<h4 class="mtext-112 cl2 p-b-33">관련 상품</h4>
-						<ul>
+						<h4 class="mtext-112 cl2 p-b-33">관련 매거진</h4>
+					<%-- 	<ul>
 							<li class="flex-w flex-t p-b-30"><a href="#" class="wrao-pic-w size-214 hov-ovelay1 m-r-20"> <img src="${pageContext.request.contextPath }/resources/images/product-min-01.jpg" alt="PRODUCT">
 							</a>
 								<div class="size-215 flex-col-t p-t-8">
@@ -83,8 +85,9 @@
 							</a>
 								<div class="size-215 flex-col-t p-t-8">
 									<a href="#" class="stext-116 cl8 hov-cl1 trans-04"> Nixon Porter Leather Watch In Tan </a> <span class="stext-116 cl6 p-t-20"> $17.00 </span>
-								</div></li>
-						</ul>
+								</div>
+								</li>
+						</ul> --%>
 					</div>
 				</div>
 			</div>

@@ -33,7 +33,7 @@
     <div id="app">
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active">
-    <div class="sidebar-header">
+         <div class="sidebar-header">
         <img src="../resources/semiadmin_css/assets/images/logo2.JPG" alt="" srcset=""
         style="width:80%; height:80%">
     </div>
@@ -43,7 +43,7 @@
              <li class='sidebar-title'>Main Menu</li>
             
                 <li class="sidebar-item">
-                    <a href="index" class='sidebar-link'>
+                    <a href="dashboard" class='sidebar-link'>
                         <i data-feather="home" width="20"></i> 
                         <span>Dashboard</span>
                     </a>
@@ -262,7 +262,7 @@
                         <span>Widgets</span>
                     </a>
                     
-                    <ul class="submenu ">
+                    <ul class="submenu">
                         
                         <li>
                             <a href="ui_chatbox">Chatbox</a>
@@ -407,7 +407,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class='breadcrumb-header'>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index">Main</a></li>
+                        <li class="breadcrumb-item"><a href="dashboard">Main</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Review 후기</li>
                     </ol>
                 </nav>
@@ -463,22 +463,21 @@
     </section>
 </div>
 <!-- Bordered table end -->
-          <footer>
+        
+            <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-left">
-                        <p>2020 &copy; FlowerPot </p>
+                        <p>2020 &copy; Voler</p>
                     </div>
                     <div class="float-right">
-                        <p>Crafted with <span class='text-danger'>
-                        <i data-feather="heart"></i></span> by 
-                        <a href="http://ahmadsaugi.com">Light & Salt</a></p>
+                        <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a href="http://ahmadsaugi.com">Ahmad Saugi</a></p>
                     </div>
                 </div>
             </footer>
         </div>
     </div>
     
-    <script type="text/javascript">
+ <!--    <script type="text/javascript">
    
     const result ="delete";
     
@@ -488,7 +487,7 @@
     	alert("삭제되지 않았습니다. 다시 확인해주세요. ");
     }
     
-    </script>
+    </script> -->
     
     <script src="../resources/semiadmin_css/assets/js/feather-icons/feather.min.js"></script>
     <script src="../resources/semiadmin_css/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>

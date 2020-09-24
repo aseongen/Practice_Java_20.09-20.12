@@ -20,4 +20,6 @@ public interface CosmeticService {
 
 	void shoppingCart_register(Integer cno, Integer isNextpage, Integer numProduct, HttpSession session, HttpServletRequest request, HttpServletResponse response);
 
+	void updateCosmeticHitsByCno(Integer cno);
+
 }

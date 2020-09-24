@@ -1,6 +1,7 @@
 package com.flowerPot.vo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,8 +27,13 @@ public class CosmeticVo {
 	private Boolean enable;
 	private LocalDateTime regdate;
 	
-	private Integer numProduct;
-	private String mappingURL;
+	private Integer rating;
+	private Double Drating;
+	private Integer numProduct;  // 장바구니 갈때 숫자
+	private String mappingURL;   // 하나의 매핑주소
+	private List<String> mappingList;  // 여러개의 매핑주소
+	
+	private List<CosmeticVo> list;
 	
 	/*
 alter table f_cosmetic add (likey number(30));

@@ -61,32 +61,5 @@ public class HomeController {
 	public String index2(Locale locale, Model model) {
 		return "index2";
 	}
-	
-	
-	//////////////////////////////////////////////////////////  카카오 페이	  //////////////////////////////////////////////////////
-	@Setter(onMethod_ = @Autowired)
-    private KakaoPay kakaopay;
-    
-    
-    @GetMapping("/kakaoPay")
-    public void kakaoPayGet() {
-        
-    }
-	
-	@PostMapping("/kakaoPay")
-    public String kakaoPay() {
-        log.info("kakaoPay post............................................");
-        
-        return "redirect:" + kakaopay.kakaoPayReady();
- 
-    }
-    
-    @GetMapping("/kakaoPaySuccess")
-    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
-        log.info("kakaoPaySuccess get............................................");
-        log.info("kakaoPaySuccess pg_token : " + pg_token);
-        
-        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token));
-    }
 
 }

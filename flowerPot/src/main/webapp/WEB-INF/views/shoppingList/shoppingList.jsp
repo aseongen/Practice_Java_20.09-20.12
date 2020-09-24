@@ -22,7 +22,103 @@
 			<div class="col-12 m-lr-0-xl">
 					<h2 class="my-5 text-center">장바구니</h2>
 					<div class="wrap-table-shopping-cart">
-						<table class="table-shopping-cart">
+						<table class="table table-hover border" style="margin: 0;">
+							<tr>
+								<!-- <th class="column-1 text-center"></th> -->
+								<th scope="col" class="text-center">상품사진</th>
+								<th scope="col" class="text-center">상품이름</th>
+								<th scope="col" class="text-center">가격</th>
+								<th scope="col" class="text-center">개수</th>
+								<th scope="col" class="text-center">총 가격</th>
+								<th scope="col" class="text-center">삭제</th>
+							</tr>
+
+							<c:forEach var="cosmetic" items="${shoppingCartList }">
+								<tr data-cno="${cosmetic.cno }" class="">
+									<!-- <td class="column-1 text-center"><input class="align-self-center m-l-10" type="checkbox" id=""></td>  --><!-- 요부분 생각좀하자 -->
+									<td class="align-self-center text-center" >
+										<div class="how-itemcart1" style="margin : 0 auto;">
+										   <img src="${cosmetic.mappingList[0] }" alt="상품사진" >
+										</div>
+									</td>
+									<td class="text-center align-middle">${cosmetic.name }</td>
+									<!-- 상품하나의 가격 -->
+									<td class="text-center align-middle"><span class="price">${cosmetic.price }</span><span>원</span></td>
+									<!-- 개수선택 -->
+									<td class="text-center align-middle">
+										<div class="wrap-num-product flex-w" style="margin : 0 auto;">
+											<div class="num-product-down cl8 hov-btn3 trans-04 flex-c-m" onclick="return changeValue(this,0);">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product cosmetic-amount" type="text" name="" value="${cosmetic.numProduct}">
+
+											<div class="num-product-up cl8 hov-btn3 trans-04 flex-c-m" onclick="return changeValue(this,1);">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+									</td>
+									<!--  -->
+									<td class="text-center align-middle"><span class="price-product"></span><span>원</span></td>
+									<td class="text-center align-middle"><button type="button" class="btn btn-outline-secondary cosmetic-delete">상품삭제</button></td>
+								</tr>
+							</c:forEach>
+							<!-- <tr data-cno="1" class="table_row">
+									<td class="column-1 text-center">
+										<div class="how-itemcart1">
+											<img src="" alt="상품사진">
+										</div>
+									</td>
+									<td class="column-2 text-center">이름</td>
+									상품하나의 가격
+									<td class="column-2 text-center"><span class="price">1111</span><span>원</span></td>
+									개수선택
+									<td class="column-4 text-center">
+										<div class="wrap-num-product flex-w m-l-auto m-r-0">
+											<div class="y-btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product cosmetic-amount" type="text" name="" value="1">
+
+											<div class="y-btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+									</td>
+									
+									<td class="column-5 text-center">가격</td>
+									<td class="text-center" style="width: 100px;"><button type="button" class="btn btn-outline-secondary cosmetic-delete">상품삭제</button></td>
+								</tr>
+								<tr data-cno="2" class="table_row">
+									<td class="column-1 text-center">
+										<div class="how-itemcart1">
+											<img src="" alt="상품사진">
+										</div>
+									</td>
+									<td class="column-2 text-center"><span class="name">이름</span></td>
+									상품하나의 가격
+									<td class="column-2 text-center"><span class="price">2222</span><span>원</span></td>
+									개수선택
+									<td class="column-4 text-center">
+										<div class="wrap-num-product flex-w m-l-auto m-r-0">
+											<div class="y-btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" onclick="return changeValue(this,0);">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product cosmetic-amount" type="text" name="" value="1">
+
+											<div class="y-btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" onclick="return changeValue(this,1);">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+									</td>
+									
+									<td class="column-5 text-center">가격</td>
+									<td class="text-center"><button type="button" class="btn btn-outline-secondary cosmetic-delete">상품삭제</button></td>
+								</tr> -->
+						</table>
+						<%-- <table class="table-shopping-cart">
 							<tr class="table_head">
 								<!-- <th class="column-1 text-center"></th> -->
 								<th class="column-1 text-center">상품사진</th>
@@ -38,7 +134,7 @@
 									<!-- <td class="column-1 text-center"><input class="align-self-center m-l-10" type="checkbox" id=""></td>  --><!-- 요부분 생각좀하자 -->
 									<td class="column-1 text-center">
 										<div class="how-itemcart1">
-										   <img src="${cosmetic.mappingURL }" alt="상품사진">
+										   <img src="${cosmetic.mappingList[0] }" alt="상품사진"  style="margin : 0 auto;">
 										</div>
 									</td>
 									<td class="column-2 text-center">${cosmetic.name }</td>
@@ -117,7 +213,7 @@
 									<td class="column-5 text-center">가격</td>
 									<td class="text-center"><button type="button" class="btn btn-outline-secondary cosmetic-delete">상품삭제</button></td>
 								</tr> -->
-						</table>
+						</table> --%>
 					</div>
 			</div>
 
@@ -165,7 +261,10 @@
 						<span class="mtext-101 cl2" style="font-size: 11px;"> 쿠폰, 적립금 적용은 다음페이지인 '주문서'페이지에서 사용가능합니다 </span>
 					</div>
 				</div>
-				<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 m-t-25 p-lr-15 trans-04 pointer">구매하기</button>
+				<!-- root=2는 장바구니에서 결재페이지로 갔다는것 -->
+				
+				<a href="${pageContext.request.contextPath}/cosmetic/payment?root=2" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 m-t-25 p-lr-15 trans-04 pointer">구매하기</a>
+				
 			</div>
 		</div>
 	</div>

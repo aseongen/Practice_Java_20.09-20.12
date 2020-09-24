@@ -15,3 +15,5 @@ create sequence atno_seq start with 1 increment by 1;
 
 drop table f_attachFile;
 select * from f_attachFile;
+
+select c.*,a.mappingURL from f_cosmetic c left outer join f_attachFile a on c.cno=a.cno where c.cno = 2141;

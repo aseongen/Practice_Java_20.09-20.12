@@ -136,10 +136,12 @@
 						
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<span class="stext-105 cl3"> ${cosmetic.brand } </span>
+								<span class="stext-105 cl3" style="width: 100%; text-align: center;"> [${cosmetic.brand }] </span>
 								<!-- 화장품 이름 -->
-								<a href="${pageContext.request.contextPath }/cosmetic/cosmetic_ok?cno=${cosmetic.cno}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6"> ${cosmetic.name } </a>
-								<span class="stext-105 cl3"> ${cosmetic.price } </span>
+								<a href="${pageContext.request.contextPath }/cosmetic/cosmetic_ok?cno=${cosmetic.cno}" class="stext-105 cl4 hov-cl1 trans-04 js-name-b2 p-b-6 p-t-6" 
+								style="width: 100%; text-align: center; color: black;"> 
+								${cosmetic.name } </a>
+								<span class="stext-105 cl3" style="width: 100%; text-align: center; color: red;"> ${cosmetic.price }원 </span>
 							</div>
 
 							<!-- 좋아요 -->

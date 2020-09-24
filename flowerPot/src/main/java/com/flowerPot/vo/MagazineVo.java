@@ -19,6 +19,7 @@ public class MagazineVo {
 	private Integer mgno;
 	private Integer mno;
 	private String title;
+	private String name;
 	private String content;
 	private String category;
 	private String UUIDName;

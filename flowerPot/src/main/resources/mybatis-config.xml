@@ -6,7 +6,8 @@ PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.flowerPot.vo.MagazineVo" alias="mg"/>
+		<typeAlias type="com.flowerPot.admin.vo.CoupVo" alias="coup"/>
+		<typeAlias type="com.flowerPot.admin.vo.CustomerVo" alias="cstmr"/>
 	</typeAliases>
 </configuration>
 

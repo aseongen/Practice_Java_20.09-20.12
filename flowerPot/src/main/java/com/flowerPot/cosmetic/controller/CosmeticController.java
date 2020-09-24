@@ -47,9 +47,23 @@ public class CosmeticController {
 	CosmeticReviewService cosmeticReviewService;
 	
 	@RequestMapping("payment")
-	public void payment(Model model) {
+	public void payment(Model model,Integer root,CosmeticVo cosmetic,HttpSession session) { // root는 장바구니에서 접근하는지, 바로구매인지 구분하는 변수
 		MemberVo memberVo = new MemberVo();
-		model.addAttribute("member", memberVo);
+		log.info("cosmetic:"+cosmetic);
+		//List<CosmeticVo> clist = (List<CosmeticVo>) session.getAttribute("shoppingCartList");
+		//log.info("화장품 리스트");
+		//for(CosmeticVo c : clist) {
+		//	log.info("화장품 : "+c);
+		//}
+		
+		// 이거는 바로 구매를 했을경우 
+		if(root==1) {
+			CosmeticVo c = cosmeticService.selectOneCosmeticByCno(cosmetic.getCno());
+			c.setNumProduct(cosmetic.getNumProduct());
+			model.addAttribute("cosmetic", c);
+		}
+		model.addAttribute("member", memberVo);  // 어떤멤버인지
+		model.addAttribute("root", root);
 		
 	}
 	
@@ -63,6 +77,7 @@ public class CosmeticController {
 		for(int i=0; i<cList.size(); i++) {
 			if(cList.get(i).getCno()==cno) {
 				cList.remove(i);
+				session.setAttribute("shoppingCartList", cList);
 				break;
 			}
 		}
@@ -99,12 +114,15 @@ public class CosmeticController {
 			out.print("</script>");
 			out.close();
 		}
+		
+		
 	}
 	
 	// 윤신영 - 화장품 구입 페이지
 	@RequestMapping("cosmetic")
 	public void cosmetic(Integer cno,Model model) throws IOException {
-		CosmeticVo cosmetic = cosmeticService.selectOneCosmeticByCno(cno);
+		cosmeticService.updateCosmeticHitsByCno(cno);
+		CosmeticVo cosmetic = cosmeticService.selectOneCosmeticByCno(cno);  // 상품번호로,, 화장품 정보 가져오기
 		DescriptionVo description = descriptionService.selectOneDescriptionByCno(cno);
 		List<CosmeticReviewVo> crList = cosmeticReviewService.selectListCosmeticReviewListByCno(cno);
 		model.addAttribute("cosmetic", cosmetic);

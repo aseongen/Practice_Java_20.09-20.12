@@ -1,7 +1,10 @@
 package com.flowerPot.vo;
 
 import java.time.LocalDateTime;
+
 import java.util.List;
+
+import com.flowerPot.admin.vo.EmpVo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +27,7 @@ public class MemberVo {
 	private Boolean enabled;
 	private LocalDateTime regdate;
 	private List<AuthorityVo> authList;
+//	private List<EmpVo> empList;
 	
 	
 	
@@ -42,6 +46,9 @@ public class MemberVo {
 		this.member_rank = member_rank;
 		this.enabled = enabled;
 	}
+
+
+
 	
 	
 }

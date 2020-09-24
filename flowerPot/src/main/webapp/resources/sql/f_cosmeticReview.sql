@@ -2,8 +2,8 @@ create table f_cosmeticReview(
 	crno number(30),
 	cno number(30),
 	mno number(30),
-	category varchar2(50),   -- 평점 / 문의
-	rating number(5),
+	category varchar2(50),   -- 상품문의인지 상품평인지
+	rating number(5) ,  --평점
 	id varchar2(50),    -- 회원 아이디
 	nickname varchar2(50),    -- 회원 닉네임
 	content varchar2(3000),  -- 평가내용

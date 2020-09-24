@@ -17,8 +17,8 @@
 	<security:http >  <!-- use-expressions 속성은  <intercpet-url>의  access속성에 표현식을 사용할수 있다는 뜻,, false면 access="USER"로 값을 사용해야한다 -->
 		<security:intercept-url pattern="/" access="permitAll"/>  <!-- 주어진 pattern속성으로 주어진 URL에 대해서 access속성의 권한을 요구한다. 모든 URL을 보호하고, 엑세스하기 위해서는 ROLE_USER 역할을 요구한다. 접두어 'ROLE_'이 없어도 동일한 의미이다-->
 		<security:intercept-url pattern="/member/login" access="permitAll"/>
-		<security:intercept-url pattern="/myPage/**" access="hasRole('ROLE_USER')"/>
-		<security:intercept-url pattern="/magazine/magazine_write" access="hasAnyRole('ROLE_USER','ROLE_REGISTER','ROLE_ADMIN')"/>
+		<!-- <security:intercept-url pattern="/myPage/**" access="hasRole('ROLE_USER')"/> -->
+		<!-- <security:intercept-url pattern="/magazine/magazine_write" access="hasAnyRole('ROLE_USER','ROLE_REGISTER','ROLE_ADMIN')"/> -->
 		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
 		<security:form-login username-parameter="id" password-parameter="password" login-page="/member/login" default-target-url="/" authentication-failure-url="/member/login?fail=true"/>
 		

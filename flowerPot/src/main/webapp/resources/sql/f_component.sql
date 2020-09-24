@@ -11,6 +11,7 @@ create table f_component(
 	wrinkle char(1),    --  주름개선에 도움이 되는지
 	primary key(cpno)
 );
+
 -- 성분 번호 시퀀스
 create sequence cpno_seq start with 1 increment by 1;
 

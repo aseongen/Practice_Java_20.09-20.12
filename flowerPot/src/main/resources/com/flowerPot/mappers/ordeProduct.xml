@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.flowerPot.orderProduct.repository.OrderProductDao">
+	
+	<insert id="insertOrderProduct">
+		insert into f_orderProduct (ono,mno,cno,dno,order_num,amount,point,coupon_name,regdate,final_price) 
+		values (ono_seq.nextval,#{mno},#{cno},#{dno,jdbcType=NUMERIC},#{order_num},#{amount},#{point},#{coupon_name,jdbcType=VARCHAR},sysdate,#{final_price})
+	</insert>
+	
+	<insert id="insertOrderProductNoMember">
+		insert into f_orderProduct (ono,cno,dno,order_num,amount,point,coupon_name,regdate,tel,email,final_price) 
+		values (ono_seq.nextval,#{cno},#{dno,jdbcType=NUMERIC},#{order_num},#{amount},#{point,jdbcType=NUMERIC},#{coupon_name,jdbcType=VARCHAR},sysdate,#{tel},#{email},#{final_price})
+	</insert>
+	
+	<delete id="deleteAll">
+		delete from f_orderProduct
+	</delete>
+	
+	<select id="selectCount" resultType="int">
+		select count(*) from f_orderProduct
+	</select>
+	
+</mapper>
+

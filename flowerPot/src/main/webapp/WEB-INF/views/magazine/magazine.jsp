@@ -33,9 +33,19 @@
 					
 				</div>
 				<!-- Pagination -->
-					<div class="flex-l-m flex-w w-full p-t-10 m-lr--7">
-						<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1"> 1 </a>
-						<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7"> 2 </a>
+					<div class="flex-c-m flex-w w-full p-t-10 m-lr--7 magazine-nav">
+					<a >
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+						</svg>
+					</a>
+					<button class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1"> 1 </button>
+					<a class="flex-c-m how-pagination1 trans-04 m-all-7"> 2 </a>
+					<a >
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+						</svg>
+					</a>
 					</div>
 			</div>
 			<div class="col-md-4 col-lg-3 p-b-80">
@@ -104,6 +114,132 @@
 </section>
 
 <script>
+// $(document).ready(function () {
+	// 윤신영 - 매거진 목록 가져오기, ajax
+	function magazineList(pageNum) {
+		if(typeof pageNum == "undefined"){
+			pageNum=0;
+		}
+		console.log(pageNum);
+		var Criteria = { 'category' : '${category}','pageNum' : pageNum, 'amount':5};
+		
+		$.ajax({
+				url: '${pageContext.request.contextPath }/magazine/magazineAjax',
+				type: 'GET',
+				data : Criteria,
+				dataType: 'json',
+				success: function (data) {
+					console.log(data);
+					var mgList = data.mgList;
+					// 윤신영 - 밑에  for문은 data로 받은 magazineVo객체 하나하나를 글목륵으로 바꾸는 작업이다
+					$('.magazine-item').empty();  // 초기화
+						for(var i=0; i<mgList.length; i++){
+							$div =  $('<div/>',{'class' : 'p-b-63'});
+		
+							$a = $('<a/>',{
+								'href' : '${pageContext.request.contextPath }/magazine/magazine_cont?category=${category}&mgno='+mgList[i].mgno+'',
+								'class' : 'hov-img0 how-pos5-parent',
+								
+							});
+		
+							$img = $('<img/>',{
+								'src' : '${pageContext.request.contextPath }'+ mgList[i].rootfolder+ mgList[i].uuidname,
+								'alt' : 'IMG-BLOG'
+							});
+		
+							$innerdiv =  $('<div/>',{
+								'class' : 'flex-col-c-m size-123 bg9 how-pos5'
+							});
+		
+							$span1 = $('<span/>',{
+								'class' : 'ltext-107 cl2 txt-center',
+								'text' : '22'
+							});
+		
+							$span2 = $('<span/>',{
+								'class' : 'stext-109 cl3 txt-center',
+								'text' : 'Jan 2018'
+							});
+		
+							$innerdiv.append($span1);
+							$innerdiv.append($span2);
+							$a.append($img)
+							$a.append($innerdiv)
+							$div.append($a);
+		
+							$div2 = $('<div class="p-t-32"><h4 class="p-b-15"><a href="${pageContext.request.contextPath }/magazine/magazine_cont?category=${category}&mgno='+mgList[i].mgno+'" class="ltext-108 cl2 hov-cl1 trans-04"> '+mgList[i].title+' </a></h4>'
+									+ '<p class="stext-117 cl6 txt_line"> '+mgList[i].content +' </p> <div class="flex-w flex-sb-m p-t-18"><span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10"> <span>' 
+									+'<span class="cl4">By</span> 작성자 <span class="cl12 m-l-4 m-r-6">|</span>'
+									+'</span> <span> '+ mgList[i].category +' <span class="cl12 m-l-4 m-r-6">|</span>'
+									+'</span></span> '
+									+'<a href="${pageContext.request.contextPath }/magazine/magazine_cont?category=${category}&mgno='+mgList[i].mgno+'" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">Continue Reading <i class="fa fa-long-arrow-right m-l-9"></i></a></div></div>');  // 매거진 내용 페이로 이동
+							$div.append($div2)
+							$('.magazine-item').append($div);   // 매거진 추가
+							} // for문 끝
+						
+						var page = data.Page;
+						console.log(page);
+						$('.magazine-nav').empty();  // 페이징 버튼초기화
+						
+						<%--if(page.prev){
+							$prev = $('<button class="flex-c-m how-pagination1 trans-04 m-all-7"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" /></svg></button>');
+						}else{
+							// true
+							$prev = $('<button onclick="return magazineList('+page.startPage-10+');" class="flex-c-m how-pagination1 trans-04 m-all-7"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" /></svg></button>');
+						}
+						
+						if(page.next){
+							$next = $('<button class="flex-c-m how-pagination1 trans-04 m-all-7"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></button>');
+						}else{
+							// true
+							$next = $('<button onclick="return magazineList('+page.startPage-10+');" class="flex-c-m how-pagination1 trans-04 m-all-7"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></button>');
+						}--%>
+						$prev = $('<button class="flex-c-m how-pagination1 trans-04 m-all-7"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" /></svg></button>');
+						$next = $('<button class="flex-c-m how-pagination1 trans-04 m-all-7"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></button>');
+						if(page.prev==true){
+							var number = Number(page.startPage)-10;
+							$prev.attr('onclick','return magazineList('+number+');');
+						}
+						if(page.next==true){
+							var number = Number(page.startPage)+10;
+							$next.attr('onclick','return magazineList('+number+');');
+						}
+						$('.magazine-nav').append($prev);
+						for(var i= page.startPage; i<=page.endPage; i++){
+							if(page.cri.pageNum==i){
+								$('.magazine-nav').append($('<button onclick="return pageMove(this);" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1"> '+i+' </button>'));
+							}else{
+								$('.magazine-nav').append($('<button onclick="return pageMove(this);" class="flex-c-m how-pagination1 trans-04 m-all-7"> '+i+' </button>'));
+							}
+						}
+						$('.magazine-nav').append($next);
+					/* '<button href=""><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" /></svg></button>'     
+					'<button href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">1 </button>'
+					'<button href="#" class="flex-c-m how-pagination1 trans-04 m-all-7"> 2 </button>'
+					'<button href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg></button>'
+					 */},
+					error : function () {
+						console.log('error');
+					}
+					
+				});
+
+		};
+		magazineList(1);
+	//});
+
+function pageMove(data) {
+	console.log(data);
+	var page = $(data).html();
+	magazineList(page);
+}
+
+</script>
+<jsp:include page="../info/footer.jsp"></jsp:include>
+
+
+
+<!-- 
 
 $div =  $('<div/>',{
 	'class' : 'p-b-63'
@@ -144,74 +280,4 @@ $div2 = $('<div class="p-t-32"><h4 class="p-b-15"><a href="blog-detail.html" cla
 		+'<span class="cl4">By</span> 작성자 <span class="cl12 m-l-4 m-r-6">|</span>'
 		+'</span> <span> 카테고리 <span class="cl12 m-l-4 m-r-6">|</span>'
 		+'</span> <span> 댓글개수 </span> </span> <a href="blog-detail.html" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">Continue Reading <i class="fa fa-long-arrow-right m-l-9"></i></a></div></div>');
-
-$(document).ready(function () {
-	// 윤신영 - 매거진 목록 가져오기, ajax
-	(function yajax() {
-		var Criteria = { category : '${category}'};
-		
-		$.ajax({
-				url: '${pageContext.request.contextPath }/magazine/magazineAjax',
-				type: 'GET',
-				data : Criteria,
-				dataType: 'json',
-				success: function (data) {
-					console.log(data);
-					var mgList = data.mgList;
-					// 윤신영 - 밑에  for문은 data로 받은 magazineVo객체 하나하나를 글목륵으로 바꾸는 작업이다
-					for(var i=0; i<mgList.length; i++){
-						$div =  $('<div/>',{
-							'class' : 'p-b-63'
-						});
-	
-						$a = $('<a/>',{
-							'href' : '${pageContext.request.contextPath }/magazine/magazine_cont?category=${category}&mgno='+mgList[i].mgno+'',
-							'class' : 'hov-img0 how-pos5-parent',
-							
-						});
-	
-						$img = $('<img/>',{
-							'src' : '${pageContext.request.contextPath }'+ mgList[i].rootfolder+ mgList[i].uuidname,
-							'alt' : 'IMG-BLOG'
-						});
-	
-						$innerdiv =  $('<div/>',{
-							'class' : 'flex-col-c-m size-123 bg9 how-pos5'
-						});
-	
-						$span1 = $('<span/>',{
-							'class' : 'ltext-107 cl2 txt-center',
-							'text' : '22'
-						});
-	
-						$span2 = $('<span/>',{
-							'class' : 'stext-109 cl3 txt-center',
-							'text' : 'Jan 2018'
-						});
-	
-						$innerdiv.append($span1);
-						$innerdiv.append($span2);
-						$a.append($img)
-						$a.append($innerdiv)
-						$div.append($a);
-	
-						$div2 = $('<div class="p-t-32"><h4 class="p-b-15"><a href="${pageContext.request.contextPath }/magazine/magazine_cont?category=${category}&mgno='+mgList[i].mgno+'" class="ltext-108 cl2 hov-cl1 trans-04"> '+mgList[i].title+' </a></h4>'
-								+ '<p class="stext-117 cl6 txt_line"> '+mgList[i].content +' </p> <div class="flex-w flex-sb-m p-t-18"><span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10"> <span>' 
-								+'<span class="cl4">By</span> 작성자 <span class="cl12 m-l-4 m-r-6">|</span>'
-								+'</span> <span> '+ mgList[i].category +' <span class="cl12 m-l-4 m-r-6">|</span>'
-								+'</span></span> '
-								+'<a href="${pageContext.request.contextPath }/magazine/magazine_cont?category=${category}&mgno='+mgList[i].mgno+'" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">Continue Reading <i class="fa fa-long-arrow-right m-l-9"></i></a></div></div>');  // 매거진 내용 페이로 이동
-						$div.append($div2)
-						$('.magazine-item').append($div);
-						}
-					},
-					error : function () {
-						console.log('error');
-					}
-					
-				});
-
-		})();
-	});
-</script>
-<jsp:include page="../info/footer.jsp"></jsp:include>
+ -->

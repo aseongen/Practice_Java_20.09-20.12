@@ -10,4 +10,6 @@ public interface CosmeticReviewDao {
 
 	List<CosmeticReviewVo> selectListCosmeticReviewListByCno(Integer cno);
 
+	List<CosmeticReviewVo> selectListCosmeticReviewListByCnoRating(Integer cno);
+
 }

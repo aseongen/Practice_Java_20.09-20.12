@@ -24,8 +24,8 @@ public class DescriptionTestCase {
 	private List<CosmeticVo> cList;
 	
 	public DescriptionVo insertDescriptionTestCase(){
-		
-		this.cList=cosmeticTestCase.insertCosmeticTestCase(); 
+
+		this.cList=cosmeticTestCase.insertCosmeticTestCase();
 		
 		log.info("cList:"+cList.toString());
 		DescriptionVo description=null;

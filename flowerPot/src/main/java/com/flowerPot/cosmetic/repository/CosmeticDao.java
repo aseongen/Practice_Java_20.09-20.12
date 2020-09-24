@@ -19,4 +19,6 @@ public interface CosmeticDao {
 
 	CosmeticVo selectOneCosmeticByCno(Integer cno);
 
+	void updateCosmeticHitsByCno(Integer cno);
+
 }
