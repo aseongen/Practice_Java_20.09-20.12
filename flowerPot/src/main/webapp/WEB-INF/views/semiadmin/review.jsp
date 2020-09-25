@@ -426,33 +426,41 @@
                             <th>게시글번호</th>
                             <th>멤버번호</th>
                             <th>상품번호</th>
+                            <th>dno</th>
                             <th>주문번호</th>
                             <th>수량</th>
                             <th>상태</th>
-                            <th>날짜</th>
                             <th>배송상태</th>
                             <th>멤버등급</th>
                             <th>포인트</th>
-                            <th>쿠폰</th>
+                            <th>쿠폰이름</th>
+                            <th>구입날짜</th>
+                            <th>비회원전화번호</th>
+                            <th>비회원 이메일</th>
+                            <th>최종금액</th>
                         </tr>
                     </thead>
                     <tbody>
                     <c:forEach var="r" items="${relist}">
                         <tr >
                             <td>${r.ono}</td>
-                            <td>${r.cno}</td>
                             <td>${r.mno}</td>
+                            <td>${r.cno}</td>
+                            <td>${r.dno}</td>
                             <td>${r.orderNum}</td>
                             <td>${r.amount}</td>
                             <td>${r.state}</td>
-                            
-                            <td> 
-                            <fmt:formatDate value="${r.date}" pattern="yyyy년 MM월 dd일 "/> </td>
-                            
                             <td>${r.deliverState}</td>
                             <td>${r.memberRank}</td>
                             <td>${r.point}</td>
                             <td>${r.coupon}</td>
+                            
+                            <td> 
+                            <fmt:formatDate value="${r.date}" pattern="yyyy년 MM월 dd일 "/> </td>
+                            
+                            <td>${r.tel}</td>
+                            <td>${r.email}</td>
+                            <td>${r.finalprice}</td>
                           
                         </tr>
                         </c:forEach>

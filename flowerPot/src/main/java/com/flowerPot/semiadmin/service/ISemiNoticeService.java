@@ -13,14 +13,16 @@ public interface ISemiNoticeService {
 
 	//  공지사항 게시글 번호로 지우기  } 
 	void delTable(Integer sBno);
-
+/////////////////////////////////////////////////
 	//{ Review 후기  } 
 	List<SemiReviewVO> getReviewArticles();
+//////////////////////////////////////////////////
+	
 	
 	// { Inventory 목록
 	List<SemiInventoryVO> getInvenArticles();
 	
 	// Inventory 화장품 번호로  수량 submit 하기}
-	void submitInven(String amount);
+	void submitInven(SemiInventoryVO semi);
 
 }

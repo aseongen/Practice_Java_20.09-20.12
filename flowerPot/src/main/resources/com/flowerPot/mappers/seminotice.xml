@@ -36,19 +36,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <id property="ono" column="ono"/>
   <id property="mno" column="mno"/>
   <id property="cno" column="cno"/>
+  <id property="dno" column="dno"/>
   <id property="orderNum" column="order_num"/>
   <id property="amount" column="amount"/>
   <id property="state" column="state"/>
-  <id property="date" column="regdate"/>
   <id property="deliverState" column="deliver_state"/>
   <id property="memberRank" column="member_rank"/>
   <id property="point" column="point"/>
-  <id property="coupon" column="coupon"/>
+  <id property="coupon" column="coupon_name"/>
+  <id property="date" column="regdate"/>
+  <id property="tel" column="tel"/>
+  <id property="email" column="email"/>
+  <id property="finalprice" column="final_price"/>
 
   </resultMap>
   
   <!-- { Review 후기  }  -->
-  <select id ="getReviewArticles" resultMap="SemiReviewMap" >
+  <select id ="getReviewArticles" resultMap="SemiReviewMap">
     select * 
     from f_orderProduct
     order by ono asc
@@ -58,20 +62,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
  <select id ="getInvenArticles"  resultType="com.flowerPot.semiadmin.model.SemiInventoryVO">
    select * 
-   from semi_inventory
+   from f_cosmetic
  </select>
  
  <!-- {inventory submit 으로 재고 수량 추가하기 -->
  <update id ="submitInven">
-   update  semi_inventory  
-   set stockNumber = stockNumber + #{amount}
+   update f_cosmetic  
+   set stockNumber = stockNumber + #{plusStock} where cno = #{cno}
+
  </update>
- 
- <!-- inventory 판매 방식 변경 } -->
- <update id ="invenChange">
-   update semi_inventory
-   set sellWay = #{change}
- 
- </update>
+
+
+
+
  
 </mapper>

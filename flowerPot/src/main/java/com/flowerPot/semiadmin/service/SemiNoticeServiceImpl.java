@@ -44,8 +44,8 @@ public class SemiNoticeServiceImpl implements ISemiNoticeService {
 
 	// Inventory 화장품 번호로  수량 submit 하기}
 	@Override
-	public void submitInven(String amount) {
-		dao.submitInven(amount);
+	public void submitInven(SemiInventoryVO semi) {
+		dao.submitInven(semi);
 	}
 
 

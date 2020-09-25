@@ -21,7 +21,7 @@ public interface ISemiNoticeDAO {
 	List<SemiInventoryVO> getInvenArticles();
 	
 	// Inventory 화장품 번호로  수량 submit 하기}
-	void submitInven(String amount);
+	void submitInven(SemiInventoryVO semi);
 	
 
 

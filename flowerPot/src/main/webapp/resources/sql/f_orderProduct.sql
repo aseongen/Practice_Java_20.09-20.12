@@ -26,7 +26,7 @@ select * from f_orderProduct;
 drop sequence ordPro_seq;
 
 insert into f_orderProduct 
-values(ordPro_seq.nextval, 1, 111, 22222, 2,
-'결제완료',sysdate,'배송준비중','기본랭크','1500p','쿠폰1개')
+values(ordPro_seq.nextval, 1, 111, 22222,'주문번호', 2,
+'결제완료','배송준비중','기본랭크',1500,'ng2312312',sysdate,'010-1111-1111','bbbb@naver.com',1300);
 
 select * from f_orderProduct ;

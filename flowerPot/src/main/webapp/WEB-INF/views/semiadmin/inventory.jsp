@@ -94,9 +94,7 @@
                         <li>
                             <a href="ui_chart_apexchart">품목별 판매량</a>
                         </li>
-                        
                     </ul>
-                    
                 </li>
                     
              <li class='sidebar-title'>개인 스케줄 </li>
@@ -113,7 +111,6 @@
                         <i data-feather="layers" width="20"></i> 
                         <span>To-do List</</span>
                     </a>
-                    
            
         </ul>
     </div>
@@ -226,7 +223,6 @@
 
         <!-- table bordered -->
         <div class="table-responsive">
-        <form method="post">
           <table class="table table-bordered mb-0">
             <thead>
               <tr>
@@ -235,44 +231,55 @@
                 <th>상품색상 &amp; 사이즈</th>
                 <th>기존 수량</th>
                 <th>추가 요청 수량 </th>
-                <th>판매 방식</th>
-                <th>확인</th>
+                <th>확인 </th>
               </tr>
             </thead>
             <tbody>
             
             <c:forEach var="i" items="${ilist}">
               <tr>
+               <form method="post" onsubmit="return hidden1();">
+              
                 <td class="text-bold-500">${i.cno}</td>
                 <td>${i.name}</td>
                 <td class="text-bold-500" >${i.proOption}</td>
                 <td>${i.stockNumber}</td>
-                <td>
-                   <input type ="text" name="plusStock" 
-                           style="border: 2px solid #0d6efd; width:50%;" >
+                <td >
+                   <input id ="hidden_cno" type ="number" name="plusStock" 
+                         style="border: 2px solid #0d6efd; width:50%;">
+                   <input type="hidden" name="cno" value="${i.cno}">    
                 </td>
+               
                 <td>
-                    <select name ="${i.sellWay}">
-                      <option value='' selected>-- 선택 -- </option>
-                      <option value='무제한'>무제한</option>                
-                      <option value='강제품절'>강제품절</option>                
-                      <option value='한정'>한정</option>                
-                    </select>
+                  <input type="submit" value="확인" class="submit">
                 </td>
-                <td>
-                  <input type="submit" value="제출" class="submit">
-                </td>
+                
+             </form>
               </tr>
             </c:forEach>
             </tbody>
           </table>
-         </form>
         </div>
       </div>
     </div>
     </section>
   </div>
 </div>
+
+<script>
+console.log(document.getElementById("hidden_cno"));
+
+function hidden1(){
+	var result = document.getElementById("hidden_cno").value;
+     console.log(result);
+   	 	
+     if(result == ''){
+    		alert ("다시 입력해주세요");
+    		return false;
+    	}
+    }    
+    	
+    </script>
 <!-- Bordered table end -->
 
              <footer>
@@ -298,5 +305,7 @@
     <script src="../resources/semiadmin_css/assets/js/vendors.js"></script>
 
     <script src="../resources/semiadmin_css/assets/js/main.js"></script>
+    
+    
 </body>
 </html>

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -60,7 +61,7 @@ public class SemiAdminController {
 	}
 	
 //{ inventory 재고 목록 
-	@RequestMapping("/inventory")
+	@GetMapping("/inventory")
 	public void inventory(Model model) {
 		System.out.println("inventory 후기 페이지 실행 ");
 		
@@ -70,10 +71,10 @@ public class SemiAdminController {
 	}
 //   inventory  재고 목록  추가 
 	@PostMapping("/inventory")
-	public String inventory(Model model,HttpServletRequest request) {
-		String amount = request.getParameter("plusStock");
-		System.out.println(amount);
-		service.submitInven(amount);
+	public String inventory(Model model,SemiInventoryVO semi) {
+		
+		System.out.println(semi);
+		service.submitInven(semi);
 		
 		return "redirect:/semiadmin/inventory";
 	}
@@ -92,7 +93,7 @@ public class SemiAdminController {
 		
 		
 	}
-// modal 기능 
+// modal 기능  - > todoList
 	@RequestMapping("/todolist")
 	public void todolist() {
 		System.out.println("todolist 실행중..");
@@ -100,6 +101,12 @@ public class SemiAdminController {
 		
 	}
 	
-
+//form_editor 기능
+		@RequestMapping("/form_editor")
+		public void form_editor() {
+			System.out.println("todolist 실행중..");
+			
+			
+		}
 
 }

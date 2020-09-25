@@ -19,6 +19,8 @@ create table f_cosmetic(
 	primary key(cno),
 	unique(name)
 );
+
+
 -- alter table f_cosmetic add (hits number(30) default 0, regdate date);
 alter table f_cosmetic add (numProduct number(30) default 0);
 --alter table f_cosmetic add (likey number(30));
@@ -31,6 +33,31 @@ create sequence cno_seq  start with 1 increment by 1;
 -- alter table f_cosmetic add constraint f_cosmetic_fk_cno foreign key (cno) references f_description(cno);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--inventory work
+--cno, name, proOption, stockNumber 만 필요
+select * from F_COSMETIC order by cno asc;
+
+insert into F_COSMETIC 
+values (1, '화장품이름','상품코드', '타입', '브랜드','스킨타입',112,'tag','content',
+30,3,150050, 100,'y',151, 'proOption상품색상/사이즈',sysdate);
+
+insert into F_COSMETIC 
+values (cno_seq.nextval, '화장품이름2','상품코드2', '타입2', '브랜드2','스킨타입2',125,'tag2','content2',
+20,4,155514, 1580,'N',148, 'proOption상품색상/사이즈2',sysdate);
+
+insert into F_COSMETIC 
+values (cno_seq.nextval, '화장품이름3','상품코드3', '타입3', '브랜드3','스킨타입3',125,'tag2','content2',
+20,4,155514, 1580,'N',148, 'proOption상품색상/사이즈2',sysdate);
+
+update F_COSMETIC set proOption='상품색상2', stockNumber=3 where cno=1;
+
+
+   update f_cosmetic  
+   set stockNumber = 3 where cno = 1
+
+
+------------------------------------------------------------------------------
+UPDATE Temp_Table SET field3='변경된 값' WHERE field1 = 'data2';
 
 ALTER TABLE f_cosmetic DROP CONSTRAINT f_cosmetic_fk_cno;
 drop table f_cosmetic;
