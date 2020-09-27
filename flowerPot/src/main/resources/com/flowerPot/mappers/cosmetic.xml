@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.flowerPot.cosmetic.repository.CosmeticDao">
+	
+	<insert id="insertCosmetic">
+		insert into f_cosmetic (cno,name,type,code,brand,skinType,content,price,discountPersent,stockNumber,regdate) 
+		values (cno_seq.nextval,#{name},#{type},#{code,jdbcType=VARCHAR},#{brand},#{skinType},#{content, jdbcType=VARCHAR},#{price},#{discountPersent, jdbcType=NUMERIC},#{stockNumber, jdbcType=NUMERIC},sysdate)
+		
+		<selectKey resultType="int" order="AFTER" keyProperty="cno">
+			select cno_seq.currval from dual
+			<!-- select cno from f_cosmetic where  -->
+		</selectKey>
+	</insert>	
+	
+	<delete id="deleteAll">
+		delete from f_cosmetic
+	</delete>
+	
+	<delete id="deleteByName">
+		delete from f_cosmetic where name= #{name}
+	</delete>
+	
+	<select id="selectCount" resultType="int">
+		select count(*) from f_cosmetic
+	</select>
+	
+	<select id="selectListCosmeticByCategory" resultType="com.flowerPot.vo.CosmeticVo">
+		select * from f_cosmetic 
+	</select>
+	
+	<resultMap type="com.flowerPot.vo.CosmeticVo" id="cosmetic">
+		<result property="cno" column="cno" />
+		<result property="name" column="name" />
+		<result property="code" column="code" />
+		<result property="type" column="type" />
+		<result property="brand" column="brand" />
+		<result property="content" column="content" />
+		<result property="skinType" column="skinType" />
+		<result property="price" column="price" />
+		<result property="discountPersent" column="discountPersent" />
+		<result property="stockNumber" column="stockNumber" />
+		<result property="hits" column="hits" />
+		<result property="likey" column="likey" />
+		<result property="enable" column="enable" />
+		<result property="regdate" column="regdate" />
+		<result property="tag" column="tag" />
+		<collection property="mappingList" resultMap="mapping" ></collection>
+	</resultMap>
+	
+	<resultMap type="string" id="mapping">
+		<result property="mappingURL" column="mappingURL" />
+	</resultMap>
+	
+	<select id="selectOneCosmeticByCno" resultMap="cosmetic">
+		select c.*,a.mappingURL from f_cosmetic c left outer join f_attachFile a on c.cno=a.cno where c.cno = #{cno, jdbcType=NUMERIC}
+		<!--  select * from f_cosmetic where cno = #{cno, jdbcType=NUMERIC} -->
+	</select>
+	
+	<update id="updateCosmeticHitsByCno">
+		update f_cosmetic set hits = hits+1 where cno = #{cno}
+	</update>
+</mapper>

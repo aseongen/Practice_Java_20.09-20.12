@@ -2,7 +2,7 @@ package com.spring.mvc.board.repository;
 
 import java.util.List;
 
-import com.spirng.mvc.board.model.BoardVO;
+import com.spring.mvc.board.model.BoardVO;
 
 //게시판 관련 CRUD 추상메서드 선언 
 public interface IBoardMapper {

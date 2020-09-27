@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.spirng.mvc.board.model.BoardVO;
+import com.spring.mvc.board.model.BoardVO;
 import com.spring.mvc.board.repository.IBoardMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)

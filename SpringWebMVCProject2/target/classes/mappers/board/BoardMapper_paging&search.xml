@@ -1,0 +1,69 @@
+
+<mapper namespace="com.spring.mvc.board.repository.IBoardMapper">
+
+	
+	<!-- 중복되는 동적 SQL문에 대한 처리 -->
+	<sql id="search">
+		<!-- 동적 SQL구문 -->
+		<if test="condition == 'title'">
+		WHERE title LIKE '%'||#{keyword}||'%'
+		</if>
+		<if test="condition == 'writer'">
+		WHERE writer LIKE '%'||#{keyword}||'%'
+		</if>
+		<if test="condition == 'content'">
+		WHERE content LIKE '%'||#{keyword}||'%'
+		</if>
+		<if test="condition == 'titleContent'">
+		WHERE title LIKE '%'||#{keyword}||'%'
+		 OR content LIKE '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	
+	<!-- 1. 현강 페이징,검색처리 소스 기반  오라클 쿼리문-->
+	<select id="getArticleList" resultMap="BoardMap">		
+		SELECT * FROM 
+		(SELECT rownum rnum, board_no, title, content, writer, reg_date, view_cnt FROM 
+		(SELECT * FROM mvc_board 
+		 ORDER BY board_no DESC))
+		WHERE  rnum BETWEEN #{pageStart} AND #{pageEnd}
+	</select>
+	<!-- 현강 페이징,검색처리 소스 기반  오라클 쿼리문-->
+	
+	<!-- 2. 현강 페이징,검색처리 소스 기반  오라클 쿼리문
+	<select id="getArticleList" resultMap="BoardMap">		
+		SELECT * FROM 
+		(SELECT rownum rnum, board_no, title, content, writer, reg_date, view_cnt FROM 
+		(SELECT * FROM mvc_board 
+		<include refid="search"/>
+		 ORDER BY board_no DESC))
+		WHERE  rnum BETWEEN #{pageStart} AND #{pageEnd}
+	</select>
+	 현강 페이징,검색처리 소스 기반  오라클 쿼리문-->
+
+	
+	<!-- 1. 현강 페이징,검색처리 소스 기반  오라클 쿼리문-->
+	<select id="countArticles" resultType="int">
+		SELECT COUNT(*) 
+		FROM mvc_board
+	</select>
+	<!-- 현강 페이징,검색처리 소스 기반  오라클 쿼리문-->
+	
+	<!-- 2.현강 페이징,검색처리 소스 기반  오라클 쿼리문-->
+	
+	<!-- <select id="countArticles" resultType="int">
+		SELECT COUNT(*) 
+		FROM mvc_board
+		<include refid="search" />
+	</select> -->
+	<!-- 현강 페이징,검색처리 소스 기반  오라클 쿼리문-->
+
+
+</mapper>
+
+
+
+
+
+
+
