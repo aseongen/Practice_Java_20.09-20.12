@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.net.yjh.repository.IYjhDAO" >
+
+ <resultMap id="insert"  type="com.net.yjh.model.yjhVO">
+  <id property="yNo" column="y_no"/>
+  <id property="yTitle" column="y_title"/>
+  <id property="yWriter" column="y_writer"/>
+  <id property="yPublish" column="y_publish"/>
+ </resultMap>
+
+<select id ="getArticles" resultMap="insert">
+select * 
+from yjh_table
+order by y_no asc
+</select>
+
+</mapper>
+
+
