@@ -29,6 +29,8 @@ delete from f_member where name='윤신영';
 
 insert into f_member (mno,id,password,name,nickname,address,email,gender,birth,member_rank,authority ) 
 values (mno_seq.nextval,'phantom1','tlsdud5089','윤신영','윤신영','주소','phantom_ysy@naver.com','M','11-29','골드','작성자');
+insert into f_member (mno,id,password,name,nickname,address,email,gender,birth,member_rank,authority ) 
+values (mno_seq.nextval,'admin0','0000','받성은','관리자','주소','1234@naver.com','M','11-29','골드','곤리자');
 
 update f_member set tel='010-1111-1111' where name='윤신영';
 insert into f_member (mno,id,password,name,nickname,address,email,gender,birth,member_rank,authority ) 
@@ -38,3 +40,6 @@ select id, password from f_member where id = 'user0';
 values (mno_seq.nextval,'phantom2','tlsdud5089','윤신영','윤신영','주소','phantom_ysy@naver.com','M','11-29','골드','일반회원');
 
 alter table f_member add(tel varchar2(100));
+
+
+

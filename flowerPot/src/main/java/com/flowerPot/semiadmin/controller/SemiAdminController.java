@@ -22,12 +22,16 @@ public class SemiAdminController {
 
 	@Autowired
 	private ISemiNoticeService service;
+	
 
-// modal 기능 
+// { dashboard _ main }
 	@RequestMapping("/dashboard")
-	public void dashboard() {
+	public void dashboard(Model model) {
 		System.out.println("dashboard 실행중..");
 		
+	// { semi _ notice 같은 게시물 띄우게 하기 }
+		List<SemiNoticeVO> blist = service.getArticles();
+		model.addAttribute("blist",blist);
 		
 	}
 	
@@ -69,7 +73,7 @@ public class SemiAdminController {
 		model.addAttribute("ilist",ilist);
 		
 	}
-//   inventory  재고 목록  추가 
+//   inventory  재고 목록  추가 }
 	@PostMapping("/inventory")
 	public String inventory(Model model,SemiInventoryVO semi) {
 		
@@ -93,11 +97,10 @@ public class SemiAdminController {
 		
 		
 	}
-// modal 기능  - > todoList
+// todoList
 	@RequestMapping("/todolist")
 	public void todolist() {
 		System.out.println("todolist 실행중..");
-		
 		
 	}
 	
@@ -106,7 +109,29 @@ public class SemiAdminController {
 		public void form_editor() {
 			System.out.println("todolist 실행중..");
 			
+		}
+		
+//form_editor 기능
+		@RequestMapping("/delivery")
+		public void delivery() {
+			System.out.println("delivery 실행중..");
+					
+					
+}
+//form_editor 기능
+		@RequestMapping("/chart_count")
+		public void chartCount() {
+			System.out.println("chart_count 실행중..");
+			
 			
 		}
+//form_editor 기능
+		@RequestMapping("/chart_product")
+		public void chartProduct() {
+			System.out.println("chart_product 실행중..");
+			
+			
+		}
+
 
 }

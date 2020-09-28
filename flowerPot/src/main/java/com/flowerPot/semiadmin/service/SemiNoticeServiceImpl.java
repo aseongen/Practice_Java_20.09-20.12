@@ -50,11 +50,6 @@ public class SemiNoticeServiceImpl implements ISemiNoticeService {
 
 
 
-
-
-
-
-
 	
 	
 

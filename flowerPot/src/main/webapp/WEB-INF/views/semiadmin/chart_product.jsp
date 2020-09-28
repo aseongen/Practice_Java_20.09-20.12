@@ -1,44 +1,28 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table - Voler Admin Dashboard</title>
+    <title>ChartJS - Voler Admin Dashboard</title>
     
     <link rel="stylesheet" href="../resources/semiadmin_css/assets/css/bootstrap.css">
     
-    <link rel="stylesheet" href="../resources/semiadmin_css/assets/vendors/simple-datatables/style.css">
+    <link rel="stylesheet" href="../resources/semiadmin_css/assets/vendors/chartjs/Chart.min.css">
 
     <link rel="stylesheet" href="../resources/semiadmin_css/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../resources/semiadmin_css/assets/css/app.css">
     <link rel="shortcut icon" href="../resources/semiadmin_css/assets/images/favicon.svg" type="image/x-icon">
-<style>
-.submit{ display: inline-block; padding: 0.4rem 0.55rem; 
-                          font-size: 0.75rem; font-weight: 500; line-height: 1; 
-                          background-color:#5A8DEE; border-color: #5A8DEE;
-                          color: #fff; text-align: center; white-space: nowrap; 
-                          vertical-align: baseline; border-radius: 1rem;}
-</style>
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
 </head>
 <body>
-
-     <div id="app">
-      <jsp:include page="sidebar.jsp"></jsp:include>
-</div>
-     <div id="main">
+    <div id="app">
+    
+    <jsp:include page="sidebar.jsp"></jsp:include>
+				
+        <div id="main">
             <nav class="navbar navbar-header navbar-expand navbar-light">
-                <a class="sidebar-toggler" href="#">
-                <span class="navbar-toggler-icon"></span></a>
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
                 <button class="btn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -61,7 +45,7 @@
                                         <div>
                                             <h6 class='text-bold'>New Order</h6>
                                             <p class='text-xs'>
-                                                An order made by Light &emp; Salt for FlowerPot
+                                                An order made by Ahmad Saugi for product Samsung Galaxy S69
                                             </p>
                                         </div>
                                     </li>
@@ -87,7 +71,7 @@
                                 <div class="avatar mr-1">
                                     <img src="../resources/semiadmin_css/assets/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Hi, 성은</div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hi, Saugi</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
@@ -101,121 +85,53 @@
                 </div>
             </nav>
             
-<!-- check: Bordered table start -->
-<!-- ----------------------------------------------------------------- -->
 <div class="main-content container-fluid">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Datatable</h3>
-                <p class="text-subtitle text-muted">We use 'simple-datatables' made by @fiduswriter. You can check the full documentation <a href="https://github.com/fiduswriter/Simple-DataTables/wiki">here</a>.</p>
+                <h3>ChartJS</h3>
+                <p class="text-subtitle text-muted">Lot of variations and customizable chart made with ChartJS. Full documentation click <a href="https://www.chartjs.org/">here</a>.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class='breadcrumb-header'>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Datatable</li>
+                        <li class="breadcrumb-item active" aria-current="page">ChartJS</li>
                     </ol>
                 </nav>
             </div>
         </div>
-    </div>
-    
-     <section class="section">
-        <div class="card">
 
-        <!-- table bordered -->
-<div class="row" id="table-bordered">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-header">
-        <h4 class="card-title">Inventory</h4>
-      </div>
-      <div class="card-content">
-        <div class="card-body">
-          <p class="card-text">  
-          <code>재고를 바로 확인 할 수 있고 필요하신 부분이 있으시면 신청해주시기 바랍니다. </code><br/>
-                        그 외의 문의사항은 언제든지 FlowerPot 담당자에게 메일로 연락주시면 됩니다.</p>
-        </div>
-        <!-- table bordered -->
-        <div class="table-responsive">
-          <table class="table table-bordered mb-0">
-          
-            <thead>
-              <tr>
-                <th>상품 번호</th>
-                <th>상품명</th>
-                <th>상품색상 &amp; 사이즈</th>
-                <th>기존 수량</th>
-                <th>추가 요청 수량 </th>
-                <th>확인 </th>
-              </tr>
-            </thead>
-            
-            <tbody>
-              <c:forEach var="i" items="${ilist}">
-               <tr>
-               	<form method="post">
-              	  <td class="text-bold-500">${i.cno}</td>
-              	  <td>${i.name}</td>
-              	  <td class="text-bold-500" >${i.proOption}</td>
-               	  <td>${i.stockNumber}</td>
-                
-               	 <td>
-                   <input id ="hidden_cno" type ="number" name="plusStock" 
-                         style="border: 2px solid #0d6efd; width:50%;">
-                   <input type="hidden" name="cno" value="${i.cno}">    
-               	 </td> 
-               
-               	 <td>
-                 	 <input type="submit" value="확인" class="submit" onclick="return stocksave(this);">
-               	 </td>
-            	 </form>
-              </tr>
-            </c:forEach>
-            </tbody>
-            
-          </table>
-        </div>
-      </div>
     </div>
-  </div>
+    <section class="section">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Bar Chart</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="bar"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Line Chart</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="line"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-
-<script>
-console.log(document.getElementById("hidden_cno"));
-
-function stocksave(tag) {
-	console.log(tag);
-	$(tag).parent();
-	console.log($(tag).parent());
-	console.log($(tag).parent().prev().children());
-	console.log($($(tag).parent().prev().children()).val());
-	
-	if($($(tag).parent().prev().children()).val() == ''){
-		alert ("....");
-		return false;
-	}
-	
-	}
-
-/*function hidden(tag){
-	//var result = document.getElementById("hidden_cno").value;
-    console.log(tag);
-     if(result == ''){
-    		alert ("....");
-    		return false;
-    	}
-   return false;
-	}   */ 
-    </script>
-<!-- Bordered table end -->
-
-             <jsp:include page="footerbar.jsp"></jsp:include>
+    <jsp:include page="footerbar.jsp"></jsp:include>
+           
         </div>
     </div>
-    </div>
-   
     
-</body>
+ </body>
 </html>

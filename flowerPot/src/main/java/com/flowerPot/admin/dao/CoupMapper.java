@@ -9,4 +9,5 @@ public interface CoupMapper {
 
 	void couponRegist(CoupVo coupon);
 	List<CoupVo> selectCoupList(SearchVO search);
+	
 }

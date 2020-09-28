@@ -44,6 +44,7 @@
 		    <artifactId>spring-security-config</artifactId>
 		    <version>5.0.6.RELEASE</version>
 		</dependency>
+		
 		<!-- 스프링 시큐리티 관련 태그라이브러리 -->
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
@@ -122,7 +123,6 @@
 			<version>1.18.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
 		
 		<!-- 오라클 JDBC 드라이버 -->
 		<dependency>  <!-- 의존성 라이브러리 정보 -->
