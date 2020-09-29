@@ -23,33 +23,47 @@
 						<span>공지사항</span>
 				</a></li>
 
-				<li class='sidebar-title'>오늘의 &amp; 할 일</li>
+				<li class='sidebar-title'>브랜드 관리</li>
 
-				<li class="sidebar-item"><a href="delivery"
-					class='sidebar-link'> <i data-feather="briefcase" width="20"></i>
+				<li class="sidebar-item">
+					<a href="delivery" class='sidebar-link'> 
+					<i data-feather="briefcase"  width="20"></i>
 						<span>배송관리</span>
 				</a></li>
-
-				<li class="sidebar-item"><a href="inventory"
-					class='sidebar-link'> <i data-feather="layers" width="20"></i>
+				
+			
+				<li class="sidebar-item">
+					<a href="inventory" class='sidebar-link'>
+					<i data-feather="layers" width="20"></i>
 						<span>재고관리</span>
 				</a></li>
+				
+				<li class='sidebar-title'>평가 조회</li>
 
-				<li class="sidebar-item"><a href="review" class='sidebar-link'>
-						<i data-feather="file-plus" width="20"></i> <span>Review후기</span>
+				<li class="sidebar-item">
+					<a href="productManage" class='sidebar-link'> 
+					<i data-feather="triangle" width="20"></i>
+						<span>제품 선호도 확인</span>
+				</a></li>
+
+				<li class="sidebar-item">
+					<a href="review" class='sidebar-link'>
+					<i data-feather="file-plus" width="20"></i> 
+						<span>고객의 상품 Review</span>
 				</a>
+				
+				
 				<li class="sidebar-item  has-sub">
-				<a href="#"	class='sidebar-link'> 
+					<a href="#"	class='sidebar-link'> 
 					<i data-feather="trending-up" width="20"></i>
 						<span>현황 Charts</span>
 				</a>
 
 					<ul class="submenu ">
-
 						<li><a href="chart_count">재고수량</a></li>
-
 						<li><a href="chart_product">품목별 판매량</a></li>
-					</ul></li>
+				</ul></li>
+
 
 				<li class='sidebar-title'>개인 스케줄</li>
 

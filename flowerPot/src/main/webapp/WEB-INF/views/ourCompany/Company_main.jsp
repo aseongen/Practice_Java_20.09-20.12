@@ -223,7 +223,7 @@
 			</div>
 		</section><!-- our Mission -->
 
-<!-- Our Team -->
+<!-- Our Team introduce -->	
 		<section class="site-section border-bottom" id="team-section">
 			<div class="container">
 				<div class="row mb-5 justify-content-center">
@@ -236,23 +236,23 @@
 					    <br/>영향력있는 사람이 될 것입니다.</p>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up"
 						data-aos-delay="">
 						<div class="team-member">
 							<figure>
 								<ul class="social">
-									<li><a href="#"><span class="icon-facebook"></span></a></li>
-									<li><a href="#"><span class="icon-twitter"></span></a></li>
-									<li><a href="#"><span class="icon-linkedin"></span></a></li>
-									<li><a href="#"><span class="icon-instagram"></span></a></li>
+									<li><a href="https://github.com/yenow"><span class="icon-facebook"></span></a></li>
+									<li><a href="https://github.com/yenow"><span class="icon-twitter"></span></a></li>
+									<li><a href="https://github.com/yenow"><span class="icon-linkedin"></span></a></li>
+									<li><a href="https://github.com/yenow"><span class="icon-instagram"></span></a></li>
 								</ul>
 								<img src="${pageContext.request.contextPath }/resources/ourCompany/images2/YS.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<div class="p-3">
 								<h3>윤신영</h3>
-								<span class="position">Master Director</span>
+								<span class="position">Yun Sin young</span>
 							</div>
 						</div>
 					</div>
@@ -262,16 +262,16 @@
 						<div class="team-member">
 							<figure>
 								<ul class="social">
-									<li><a href="#"><span class="icon-facebook"></span></a></li>
-									<li><a href="#"><span class="icon-twitter"></span></a></li>
-									<li><a href="#"><span class="icon-linkedin"></span></a></li>
-									<li><a href="#"><span class="icon-instagram"></span></a></li>
+									<li><a href="https://github.com/jamp0824"><span class="icon-facebook"></span></a></li>
+									<li><a href="https://github.com/jamp0824"><span class="icon-twitter"></span></a></li>
+									<li><a href="https://github.com/jamp0824"><span class="icon-linkedin"></span></a></li>
+									<li><a href="https://github.com/jamp0824"><span class="icon-instagram"></span></a></li>
 								</ul>
 								<img src="${pageContext.request.contextPath }/resources/ourCompany/images2/AJ.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<div class="p-3">
 								<h3>안준언</h3>
-								<span class="position">Vice Manager</span>
+								<span class="position">Ahn Jun on</span>
 							</div>
 						</div>
 					</div>
@@ -281,16 +281,16 @@
 						<div class="team-member">
 							<figure>
 								<ul class="social">
-									<li><a href="#"><span class="icon-facebook"></span></a></li>
-									<li><a href="#"><span class="icon-twitter"></span></a></li>
-									<li><a href="#"><span class="icon-linkedin"></span></a></li>
-									<li><a href="#"><span class="icon-instagram"></span></a></li>
+									<li><a href="https://github.com/krinu318995"><span class="icon-facebook"></span></a></li>
+									<li><a href="https://github.com/krinu318995"><span class="icon-twitter"></span></a></li>
+									<li><a href="https://github.com/krinu318995"><span class="icon-linkedin"></span></a></li>
+									<li><a href="https://github.com/krinu318995"><span class="icon-instagram"></span></a></li>
 								</ul>
 								<img src="${pageContext.request.contextPath }/resources/ourCompany/images2/KW.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<div class="p-3">
 								<h3>권누리</h3>
-								<span class="position">Manager</span>
+								<span class="position">Kwon Nu ri</span>
 							</div>
 						</div>
 					</div>
@@ -300,16 +300,16 @@
 						<div class="team-member">
 							<figure>
 								<ul class="social">
-									<li><a href="#"><span class="icon-facebook"></span></a></li>
-									<li><a href="#"><span class="icon-twitter"></span></a></li>
-									<li><a href="#"><span class="icon-linkedin"></span></a></li>
-									<li><a href="#"><span class="icon-instagram"></span></a></li>
+									<li><a href="https://github.com/aseongen"><span class="icon-facebook"></span></a></li>
+									<li><a href="https://github.com/aseongen"><span class="icon-twitter"></span></a></li>
+									<li><a href="https://github.com/aseongen"><span class="icon-linkedin"></span></a></li>
+									<li><a href="https://github.com/aseongen"><span class="icon-instagram"></span></a></li>
 								</ul>
 								<img src="${pageContext.request.contextPath }/resources/ourCompany/images2/se.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<div class="p-3">
 								<h3>박성은</h3>
-								<span class="position">Manager</span>
+								<span class="position">Park Seong eun</span>
 							</div>
 						</div>
 					</div>
@@ -319,20 +319,20 @@
 						<div class="team-member">
 							<figure>
 								<ul class="social">
-									<li><a href="#"><span class="icon-facebook"></span></a></li>
-									<li><a href="#"><span class="icon-twitter"></span></a></li>
-									<li><a href="#"><span class="icon-linkedin"></span></a></li>
-									<li><a href="#"><span class="icon-instagram"></span></a></li>
+									<li><a href="https://github.com/YooHyeok"><span class="icon-facebook"></span></a></li>
+									<li><a href="https://github.com/YooHyeok"><span class="icon-twitter"></span></a></li>
+									<li><a href="https://github.com/YooHyeok"><span class="icon-linkedin"></span></a></li>
+									<li><a href="https://github.com/YooHyeok"><span class="icon-instagram"></span></a></li>
 								</ul>
 								<img src="${pageContext.request.contextPath }/resources/ourCompany/images2/UJ.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<div class="p-3">
 								<h3>유재혁</h3>
-								<span class="position">Manager</span>
+								<span class="position">Yoo Jae hyeok</span>
 							</div>
 						</div>
 					</div>
-
+	
 					<div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up"
 						data-aos-delay="200">
 						<div class="team-member">
@@ -347,7 +347,7 @@
 							</figure>
 							<div class="p-3">
 								<h3>이정규</h3>
-								<span class="position">Manager</span>
+								<span class="position">Lee Jeong Kyu</span>
 							</div>
 						</div>
 					</div>
@@ -372,97 +372,93 @@
 						<button class="btn btn-primary" data-filter=".brand">First</button>
 					</div>
 				</div>
-
+<!-- 01 -->	
 				<div id="posts" class="row no-gutter">
 					<div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_1.jpg" class="item-wrap fancybox" data-fancybox="gallery2"> 
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/ppt_main.JPG" class="item-wrap fancybox" data-fancybox="gallery2"> 
 						<span class="icon-search2"></span>
-						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_1.jpg">
+						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/ppt_main.JPG">
 						</a>
 					</div>
-					
+<!-- 02 -->						
 					<div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
 						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/All02.JPG" class="item-wrap fancybox" data-fancybox="gallery2"> 
 						<span class="icon-search2"></span>
 						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/All02.JPG">
 						</a>
 					</div>
-
+<!-- 03 -->	
 					<div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_3.jpg" class="item-wrap fancybox" data-fancybox="gallery2"> 
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/study.png" class="item-wrap fancybox" data-fancybox="gallery2"> 
 						<span class="icon-search2"></span>
-						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_3.jpg">
+						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/study.png">
 						</a>
 					</div>
-
+<!-- 04 -->	
 					<div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
 						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/All01.jpg" class="item-wrap fancybox" data-fancybox="gallery2"> 
 						<span class="icon-search2"></span>
 						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/All01.jpg">
 						</a>
 					</div>
-
-					<div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_5.jpg" class="item-wrap fancybox" data-fancybox="gallery2"> 
-						<span class="icon-search2"></span>
-						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_5.jpg">
-						</a>
-					</div>
-
+<!-- 05 -->	
 					<div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_6.jpg" class="item-wrap fancybox"
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/ysy.jpg" class="item-wrap fancybox"
 							data-fancybox="gallery2"> <span class="icon-search2"></span>
-							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_6.jpg">
+							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/ysy.jpg">
 						</a>
 					</div>
-
+<!-- 06 -->	
 					<div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_7.jpg" class="item-wrap fancybox"
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/insta_pre.jpg" class="item-wrap fancybox"
 							data-fancybox="gallery2"> <span class="icon-search2"></span>
-							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_7.jpg">
+							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/insta_pre.jpg">
 						</a>
 					</div>
-
+<!-- 07 -->	
 					<div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/muffin.jpg" class="item-wrap fancybox"
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/muffin2.jpg" class="item-wrap fancybox"
 							data-fancybox="gallery2"> <span class="icon-search2"></span>
 							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/muffin.jpg">
 						</a>
 					</div>
-
-					<div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_9.jpg" class="item-wrap fancybox"
-							data-fancybox="gallery2"> <span class="icon-search2"></span>
-							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_9.jpg">
-						</a>
-					</div>
-
+<!-- 08 -->	
 					<div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/UI_Pre.jpg" class="item-wrap fancybox"
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/all.jpg" class="item-wrap fancybox"
 							data-fancybox="gallery2"> <span class="icon-search2"></span>
 							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/UI_Pre.jpg">
 						</a>
 					</div>
-
-					<div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_11.jpg" class="item-wrap fancybox"
-							data-fancybox="gallery2"> <span class="icon-search2"></span>
-							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_11.jpg">
-						</a>
-					</div>
-
-					<div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_12.jpg" class="item-wrap fancybox" data-fancybox="gallery2">
-						 <span class="icon-search2"></span>
-							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_12.jpg">
-						</a>
-					</div>
-
+<!-- 09 -->				
 					<div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
-						<a href="${pageContext.request.contextPath }/resources/ourCompany/images/img_13.jpg" class="item-wrap fancybox" data-fancybox="gallery2"> <span class="icon-search2"></span>
-							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images/img_13.jpg">
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/color_test.JPG" class="item-wrap fancybox"
+							data-fancybox="gallery2"> <span class="icon-search2"></span>
+							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/color_test.JPG">
 						</a>
 					</div>
+<!-- 10 -->
+					<div class="item brand col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/css_pra.png" class="item-wrap fancybox"
+							data-fancybox="gallery2"> <span class="icon-search2"></span>
+							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/css_pra.png">
+						</a>
+					</div>
+<!-- 11 -->
+					<div class="item design col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/login_practice.JPG" class="item-wrap fancybox" data-fancybox="gallery2">
+						 <span class="icon-search2"></span>
+							<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/login_practice.JPG">
+						</a>
+					</div>
+<!-- 12 -->
+					<div class="item web col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+						<a href="${pageContext.request.contextPath }/resources/ourCompany/images2/yjh.jpg" class="item-wrap fancybox" data-fancybox="gallery2"> 
+						<span class="icon-search2"></span>
+						<img class="img-fluid" src="${pageContext.request.contextPath }/resources/ourCompany/images2/yjh.jpg">
+						</a>
+					</div>
+					
+					
 				</div>
 			</div>
 		</section>
@@ -938,70 +934,25 @@
 					<div class="col-md-4 text-center">
 						<p class="mb-4">
 							<span class="icon-room d-block h4 text-primary"></span> 
-							<span>서울특별시 동작구 노량진동 장승배기로 171, 3층 아이비 빌딩</span>
+							<span>서울특별시 동작구 노량진동 <br/> 장승배기로  171, 3층 아이비 빌딩</span>
 						</p>
 					</div>
 					
 					<div class="col-md-4 text-center">
 						<p class="mb-4">
 							<span class="icon-phone d-block h4 text-primary"></span> 
-							<a href="#" style="color: #66cdaa">+82 - 1666 - 9210 </a>
+							<a href="#" style="color: #808080">+82 02 - 1666 - 9210 </a>
 						</p>
 					</div>
 					
 					<div class="col-md-4 text-center">
 						<p class="mb-0">
 							<span class="icon-mail_outline d-block h4 text-primary"></span>
-							 <a href="#" style="color: #66cdaa">aseongen12@gmail.com</a>
+							 <a href="http://www.google.com" style="color: #808080">aseongen12@gmail.com</a>
 						</p>
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col-md-12 mb-5">
-						<form action="#" class="p-5 bg-white">
-							<h2 class="h4 text-black mb-5">Contact Form</h2>
-							<div class="row form-group">
-								<div class="col-md-6 mb-3 mb-md-0">
-									<label class="text-black" for="fname">First Name</label> 
-									<input type="text" id="fname" class="form-control">
-								</div>
-								<div class="col-md-6">
-									<label class="text-black" for="lname">Last Name</label>
-									<input type="text" id="lname" class="form-control">
-								</div>
-							</div>
-
-							<div class="row form-group">
-								<div class="col-md-12">
-									<label class="text-black" for="email">Email</label>
-									<input type="email" id="email" class="form-control">
-								</div>
-							</div>
-
-							<div class="row form-group">
-								<div class="col-md-12">
-									<label class="text-black" for="subject">Subject</label> 
-									<input type="subject" id="subject" class="form-control">
-								</div>
-							</div>
-
-							<div class="row form-group">
-								<div class="col-md-12">
-									<label class="text-black" for="message">Message</label>
-									<textarea name="message" id="message" cols="30" rows="7" class="form-control"
-										placeholder="Write your notes or questions here..."></textarea>
-								</div>
-							</div>
-
-							<div class="row form-group">
-								<div class="col-md-12">
-									<input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
 			</div>
 		</section>
 		
@@ -1057,9 +1008,9 @@
 							<p>	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
 								<script>document.write(new Date().getFullYear());</script>
-								    All rights reserved | This template is made with 
+								    All rights reserved | We made with 
 								 <i class="icon-heart text-danger" aria-hidden="true"></i>
-								 by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								 by <a href="https://colorlib.com" target="_blank">FlowerPot</a>
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</p>
 						</div>

@@ -13,9 +13,7 @@ create table f_magazine (
 	constraint f_magazine_mgno_pk primary key (mgno)
 );
 -- 매거진 왜래키 설정
-<<<<<<< HEAD
 --alter table f_magazine add constraint f_magazine_fk_mno foreign key (mno) references f_member(mno);
-=======
 alter table f_magazine add constraint f_magazine_fk_mno foreign key (mno) references f_member(mno);
 drop table f_magazine;
 select * from f_magazine;

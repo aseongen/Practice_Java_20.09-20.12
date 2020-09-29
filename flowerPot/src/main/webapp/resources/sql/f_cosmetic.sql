@@ -32,6 +32,8 @@ create sequence cno_seq  start with 1 increment by 1;
 --  제약조건
 -- alter table f_cosmetic add constraint f_cosmetic_fk_cno foreign key (cno) references f_description(cno);
 
+select cno,name,hits,likey from f_cosmetic 
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --inventory work
 --cno, name, proOption, stockNumber 만 필요
@@ -52,9 +54,8 @@ values (cno_seq.nextval, '화장품이름3','상품코드3', '타입3', '브랜�
 update F_COSMETIC set proOption='상품색상2', stockNumber=3 where cno=1;
 
 
-   update f_cosmetic  
-   set stockNumber = 3 where cno = 1
-
+update f_cosmetic  
+set stockNumber = 3 where cno = 1;
 
 ------------------------------------------------------------------------------
 UPDATE Temp_Table SET field3='변경된 값' WHERE field1 = 'data2';

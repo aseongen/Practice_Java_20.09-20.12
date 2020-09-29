@@ -746,7 +746,7 @@ body:after {
     font-weight: bold;
     color: #cccccc; }
     .site-block-tab .nav-item > a:hover, .site-block-tab .nav-item > a.active {
-      border-bottom: 2px solid #007bff;
+      border-bottom: 2px solid #66cdb2;
       color: #000; }
 
 .block-13, .slide-one-item {
@@ -887,7 +887,7 @@ body:after {
         width: 80px;
         height: 4px;
         margin-top: -4px;
-        background: #007bff;
+        background: #66cdb2;
         top: 0; }
       .block-12 .text .text-inner .heading {
         font-size: 20px;
@@ -910,7 +910,7 @@ body:after {
     display: block;
     border-radius: 50%;
     opacity: 1;
-    color: #007bff !important; }
+    color: #66cdb2 !important; }
     .block-16 figure .play-button:hover {
       opacity: 1; }
     .block-16 figure .play-button > span {
