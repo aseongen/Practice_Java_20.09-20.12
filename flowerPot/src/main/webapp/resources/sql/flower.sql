@@ -13,6 +13,6 @@ create table bbb(
 );
 
 drop table bbb;
-s
+
 insert into aaa values (1,'aaa');
 insert into bbb values (null,'aaa');

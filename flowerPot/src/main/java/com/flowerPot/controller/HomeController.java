@@ -61,5 +61,10 @@ public class HomeController {
 	public String index2(Locale locale, Model model) {
 		return "index2";
 	}
+	
+	@RequestMapping("/ourCompany/Company_main")
+	public void ourcompany() {
+		System.out.println("우리회사 홈페이지 ");
+	}
 
 }

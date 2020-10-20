@@ -9,31 +9,21 @@ import lombok.Setter;
 @Setter
 public class SemiReviewVO {
 
-	private Integer ono;
-	private Integer mno;
+	private Integer crno;
 	private Integer cno;
-	private Integer dno;
-	private String orderNum;
-	private Integer amount;
-	private String state;
-	private String deliverState;
-	private String memberRank;
-	private String point;
-	private String coupon;
-	private Date date;
-	private String tel;
-	private String email;
-	private String finalprice;
+	private Integer mno;
+	private String category;
+	private String id;
+	private String title;
+	private String nickname;
+	private String content;
+	private String rating;
 	
 	@Override
 	public String toString() {
-		return "SemiReviewVO [ono=" + ono + ", mno=" + mno + ", cno=" + cno + ", dno=" + dno + ", orderNum=" + orderNum
-				+ ", amount=" + amount + ", state=" + state + ", deliverState=" + deliverState + ", memberRank="
-				+ memberRank + ", point=" + point + ", coupon=" + coupon + ", date=" + date + ", tel=" + tel
-				+ ", email=" + email + ", finalprice=" + finalprice + "]";
+		return "SemiReviewVO [crno=" + crno + ", cno=" + cno + ", mno=" + mno + ", category=" + category + ", id=" + id
+				+ ", title=" + title + ", nickname=" + nickname + ", content=" + content + ", rating=" + rating + "]";
 	}
-
-	
 
 	
 }

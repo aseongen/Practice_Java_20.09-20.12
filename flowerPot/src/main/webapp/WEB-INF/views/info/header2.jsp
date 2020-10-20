@@ -54,22 +54,26 @@
 					<div class="left-top-bar">Free shipping for standard order over $100</div>
 
 					<div class="right-top-bar flex-w h-full">
+
+						<a href="${pageContext.request.contextPath }/member/signUp" class="flex-c-m trans-04 p-lr-25"> 회원가입 </a>
+					
+						<a href="${pageContext.request.contextPath }/member/login" class="flex-c-m trans-04 p-lr-25"> 로그인 </a>
+
 						<a class="flex-c-m trans-04 p-lr-25">
 							<form action="${pageContext.request.contextPath}/logout" method="post">
 								<input type="submit" value="로그아웃">
 							</form>
 						</a>
-						<a href="${pageContext.request.contextPath }/customerCenter/customerCenter" class="flex-c-m trans-04 p-lr-25"> 고객센터 </a>
-
+						
 						<a href="${pageContext.request.contextPath }/myPage/myPage" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a>
+						
+						<a href="${pageContext.request.contextPath }/customerCenter/customerCenter" class="flex-c-m trans-04 p-lr-25"> 고객센터 </a>
+						
+						<a href="${pageContext.request.contextPath }/ourCompany/Company_main" class="flex-c-m trans-04 p-lr-25"> 우리회사 </a>
 
-						<a href="${pageContext.request.contextPath }/member/login" class="flex-c-m trans-04 p-lr-25"> 로그인 </a>
-
-						<a href="${pageContext.request.contextPath }/member/signUp" class="flex-c-m trans-04 p-lr-25"> 회원가입 </a>
 					</div>
 				</div>
 			</div>
-
 
 			<div class="wrap-menu-desktop how-shadow1">
 				<nav class="limiter-menu-desktop container">

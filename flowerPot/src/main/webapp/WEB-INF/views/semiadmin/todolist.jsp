@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List - Voler Admin Dashboard</title>
+    <title>Todo List - DASHBOARD</title>
     
     <link rel="stylesheet" href="../resources/semiadmin_css/assets/css/bootstrap.css">
     
@@ -17,96 +17,9 @@
 </head>
 <body>
     <div id="app">
-        <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active">
-    <div class="sidebar-header">
-        <img src="../resources/semiadmin_css/assets/images/logo.svg" alt="" srcset="">
-    </div>
-        <div class="sidebar-menu">
-        <ul class="menu">
-            
-             <li class='sidebar-title'>Main Menu</li>
-            
-                <li class="sidebar-item">
-                    <a href="index" class='sidebar-link'>
-                        <i data-feather="home" width="20"></i> 
-                        <span>Dashboard</span>
-                    </a>
-                    
-                </li>
-            
-                 <li class="sidebar-item">
-                    <a href="semi_notice" class='sidebar-link'>
-                         <i data-feather="layers" width="20"></i> 
-                        <span>공지사항</span>
-                    </a>
-                </li>
-                
-                
-             <li class='sidebar-title'>오늘의  &amp; 할 일 </li>
-                        
-                 <li class="sidebar-item  ">
-                    <a href="form_editor" class='sidebar-link'>
-                        <i data-feather="briefcase" width="20"></i> 
-                        <span>배송관리</span>
-                    </a>
-                </li>
-                
-                 <li class="sidebar-item">
-                    <a href="inventory" class='sidebar-link'>
-                         <i data-feather="layers" width="20"></i> 
-                        <span>재고관리</span>
-                    </a>
-                </li>
-                    
-                <li class="sidebar-item ">
-                    <a href="review" class='sidebar-link'>
-                        <i data-feather="file-plus" width="20"></i> 
-                        <span>Review후기</span>
-                    </a>
-                    
-                            
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i data-feather="trending-up" width="20"></i> 
-                        <span>현황 Charts</span>
-                    </a>
-                    
-                    <ul class="submenu ">
-                        
-                        <li>
-                            <a href="ui_chart_chartjs">재고수량</a>
-                        </li>
-                        
-                        <li>
-                            <a href="ui_chart_apexchart">품목별 판매량</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                    
-             <li class='sidebar-title'>개인 스케줄 </li>
- 
-                <li class="sidebar-item  ">
-                    <a href="form_layout" class='sidebar-link'>
-                        <i data-feather="layout" width="20"></i> 
-                        <span>Calendar</span>
-                    </a>
-                </li>
-            
-                <li class="sidebar-item active">
-                    <a href="ui_todolist" class='sidebar-link'>
-                        <i data-feather="layers" width="20"></i> 
-                        <span>To-do List</</span>
-                    </a>
-                    
-           
-        </ul>
-    </div>
-    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-</div>
-        </div>
+    
+       <jsp:include page="sidebar.jsp"></jsp:include>
+       
         <div id="main">
             <nav class="navbar navbar-header navbar-expand navbar-light">
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
@@ -158,7 +71,7 @@
                                 <div class="avatar mr-1">
                                     <img src="../resources/semiadmin_css/assets/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Hi, Saugi</div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hi, 성은</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
@@ -284,8 +197,7 @@
                                 </div>
                             </li>
                             <li class="widget-todo-item">
-                                <div
-                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                <div class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
                                     <div class="widget-todo-title-area d-flex align-items-center">
                                         <i data-feather="list" class='cursor-move'></i>
                                         <div class="checkbox checkbox-shadow">
@@ -327,8 +239,7 @@
                                 </div>
                             </li>
                             <li class="widget-todo-item">
-                                <div
-                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                <div class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
                                     <div class="widget-todo-title-area d-flex align-items-center">
                                         <i data-feather="list" class='cursor-move'></i>
                                         <div class="checkbox checkbox-shadow">
@@ -356,27 +267,9 @@
   
 </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-left">
-                        <p>2020 &copy; FlowerPot </p>
-                    </div>
-                    <div class="float-right">
-                        <p>Crafted with <span class='text-danger'>
-                        <i data-feather="heart"></i></span> by 
-                        <a href="http://ahmadsaugi.com">Light & Salt</a></p>
-                    </div>
-                </div>
-            </footer>
+           <jsp:include page="footerbar.jsp"></jsp:include>
         </div>
     </div>
-    <script src="../resources/semiadmin_css/assets/js/feather-icons/feather.min.js"></script>
-    <script src="../resources/semiadmin_css/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="../resources/semiadmin_css/assets/js/app.js"></script>
-    
-    <script src="../resources/semiadmin_css/assets/vendors/dragula/dragula.min.js"></script>
-    <script src="../resources/semiadmin_css/assets/js/pages/widgets.js"></script>
-
-    <script src="../resources/semiadmin_css/assets/js/main.js"></script>
+  
 </body>
 </html>

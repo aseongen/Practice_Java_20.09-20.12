@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://sargue.net/jsptags/time" prefix="javatime" %>
+
 <!-- https://fullcalendar.io/docs/initialize-globals  -->
 
 <!DOCTYPE html>
@@ -9,118 +13,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Datatable - Voler Admin Dashboard</title>
 
-<link rel="stylesheet"
-	href="../resources/semiadmin_css/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../resources/semiadmin_css/assets/css/bootstrap.css">
 
-<link rel="stylesheet"
-	href="../resources/semiadmin_css/assets/vendors/simple-datatables/style.css">
+	<link rel="stylesheet" href="../resources/semiadmin_css/assets/vendors/simple-datatables/style.css">
 
-<link rel="stylesheet"
-	href="../resources/semiadmin_css/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-<link rel="stylesheet"
-	href="../resources/semiadmin_css/assets/css/app.css">
-<link rel="shortcut icon"
-	href="../resources/semiadmin_css/assets/images/favicon.svg"
-	type="image/x-icon">
+	<link rel="stylesheet" href="../resources/semiadmin_css/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" href="../resources/semiadmin_css/assets/css/app.css">
+	<link rel="shortcut icon" href="../resources/semiadmin_css/assets/images/favicon.svg" type="image/x-icon">
+	<!-- php -->
+	<link rel="stylesheet" href="../resources/semiadmin_css/calendar/php/get-events.php" >
+	<link rel="stylesheet" href="../resources/semiadmin_css/calendar/php/utils.php" >
+	<link rel="stylesheet" href="../resources/semiadmin_css/calendar/php/get-time-zones.php" >
 
 <!-- calendar script -->
-<link href='../resources/semiadmin_css/calendar/main.css'
-	rel='stylesheet' />
+<link href='../resources/semiadmin_css/calendar/main.css' rel='stylesheet' />
 <script src='../resources/semiadmin_css/calendar/main.js'></script>
+
 
 <style>
 #calendar{
-  width:70%; height:60%; margin-left:200px;
+  width:90%; height:90%; margin: 0 20px; 
 }
 </style>
 
 </head>
 <body>
-
-	<div id="app">
-		<div id="sidebar" class='active'>
-			<div class="sidebar-wrapper active">
-				<div class="sidebar-header">
-					<img src="../resources/semiadmin_css/assets/images/logo2.JPG"
-						alt="" srcset="" style="width: 80%; height: 80%">
-				</div>
-				<div class="sidebar-menu">
-					<ul class="menu">
-
-						<li class='sidebar-title'>Main Menu</li>
-
-						<li class="sidebar-item">
-						  	<a href="index" class='sidebar-link'>
-								<i data-feather="home" width="20"></i> 
-								<span>Dashboard</span>
-						</a></li>
-
-						<li class="sidebar-item ">
-							<a href="semi_notice" class='sidebar-link'>
-							 <i data-feather="layers" width="20"></i>
-								<span>공지사항</span>
-						</a></li>
-
-
-						<li class='sidebar-title'>오늘의 &amp; 할 일</li>
-
-						<li class="sidebar-item">
-							<a href="form_editor" class='sidebar-link'> 
-							<i data-feather="briefcase" width="20"></i>
-								<span>배송관리</span>
-						</a></li>
-
-						<li class="sidebar-item">
-							<a href="inventory"	class='sidebar-link'>
-								 <i data-feather="layers" width="20"></i>
-								<span>재고관리</span>
-						</a></li>
-
-						<li class="sidebar-item">
-							<a href="review" class='sidebar-link'> 
-								<i data-feather="file-plus" width="20"></i>
-									<span>Review후기</span>
-						</a>
-						<li class="sidebar-item  has-sub">
-							<a href="#"	class='sidebar-link'> 
-								<i data-feather="trending-up" width="20"></i>
-								<span>현황 Charts</span>
-						</a>
-
-							<ul class="submenu ">
-								<li><a href="ui_chart_chartjs">재고수량</a></li>
-								<li><a href="ui_chart_apexchart">품목별 판매량</a></li>
-							</ul></li>
-
-						<li class='sidebar-title'>개인 스케줄</li>
-
-						<li class="sidebar-item active">
-						   <a href="form_layout" class='sidebar-link'> 
-						      <i data-feather="layout" width="20"></i>
-								<span>Calendar</span>
-						   </a>
-					    </li>
-
-						<li class="sidebar-item">
-						  <a href="todolist" class='sidebar-link'> 
-						     <i data-feather="layers" width="20"></i>
-								<span>To-do List</</span>
-						  </a>
-						</li> 
-						
-					</ul>
-				</div>
+		<jsp:include page="sidebar.jsp"></jsp:include>
 				
-				<button class="sidebar-toggler btn x">
-					<i data-feather="x"></i>
-				</button>
-			</div>
-		</div>
-		
 		<div id="main">
 			<nav class="navbar navbar-header navbar-expand navbar-light">
-				<a class="sidebar-toggler" href="#"> <span
-					class="navbar-toggler-icon"></span></a>
+				<a class="sidebar-toggler" href="#"> 
+				<span class="navbar-toggler-icon"></span></a>
 				<button class="btn navbar-toggler" type="button"
 					data-toggle="collapse" data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -194,34 +117,74 @@
 					</ul>
 				</div>
 			</nav>
-    <button type="button" class="btn btn-outline-primary block" data-toggle="modal" 
-    data-target="#default" style="margin-left:1165px; margin-bottom:10px;">
-                        Launch Modal
-                        </button>
 
 			<!-- calendar start  -->
-			<div id='calendar' ></div>
+				<div id='calendar'></div><br/>
 			<!-- calendar end -->
 			
-                        <!--Basic Modal -->
-                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-                        aria-hidden="true">
+                <!-- Button trigger for basic modal -->
+                <button type="button" class="btn btn-outline-primary block" data-toggle="modal" data-target="#default"
+                		style="width:90%; height:90%; margin: 0 20px;">
+                        Launch Modal
+                        </button>
+                        
+            	<div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                       			 aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel1">모달창 안의 모달창 제목 	</h5>
+                                        <h5 class="modal-title" id="myModalLabel1"> 일정 추가 </h5>
                                         <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
                                             <i data-feather="x"></i>
-                                        </button>
+                                       </button>
                                     </div>
                                     
 <!--  modal  -->
-                                    <div class="modal-body">
-                                        <p>
-                                                                                            날짜 선택 : <br/>
-                                                                                            일정 내용 :   <input type ="text" name="modal"  ><br/>
-                                     		 
-                                        </p>
+                                	 <div class="modal-body">
+                                    
+                                     	<div class="schedule_name">
+                                    	 <div class="row" >
+                                     
+                                		<!--  일정명 selected  -->
+                                		<c:forEach var="calendar" items="${cList}">
+	                                   		 <div class="col-md-6" style="font-size: medium;">
+	                                    		  <div class="form-group">
+	                                     		 	일정명:
+	                                     		 	</div>
+	                                    	</div>
+		                                    
+		                              		 <div class="col-md-6">
+		                               			   <input type="text" id="name" placeholder="일정 제목">
+		                               			   ${cList.title}
+		                              		  </div><br/>
+		                                
+		                                <!--  날짜 selected  -->
+	                                  		 <div class="col-md-6"> 
+	                                       		 <div class="form-group">
+	                                         	 	  유효기간:
+	                                         	  </div>
+	                                         </div>
+	                                   		 <div class="col-md-6">
+	                                          	<div class="form-group">
+	                                            	 <input type="date" id="startD" class="form-control" name="startPDate" placeholder="시작">
+	                                       		   	 <javatime:format value="${coup.dateChoice}" pattern="yyyy년 MM월 dd일" /></td>
+	                                            </div>
+	                                        </div><br/>
+	                                       
+	                                    <!--  일정내용  selected  --> 
+                                     	 	<div class="col-md-6" style="font-size: medium;">
+	                                    	   <div class="form-group">
+	                                      		일정내용 :
+	                                      		</div>
+	                                   		 </div>
+		                                    
+		                             	  <div class="col-md-6">
+		                                  	 <input type="text" id="name" placeholder="일정내용">
+		                                  	 ${cList.content}
+		                              	  </div><br/>
+		                              	 </c:forEach>
+                                     </div>
+                                    </div>   
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn" data-dismiss="modal">
@@ -237,39 +200,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 			
 <!-- Bordered table end -->
-			<footer>
-				<div class="footer clearfix mb-0 text-muted">
-					<div class="float-left">
-						<p>2020 &copy; FlowerPot</p>
-					</div>
-					<div class="float-right">
-						<p>	Crafted with 
-							<span class='text-danger'> 
-							<i data-feather="heart"></i></span> by
-							 <a href="http://ahmadsaugi.com">Light & Salt</a>
-						</p>
-					</div>
-				</div>
-				
-			</footer>
-		</div>
-	</div>
+			 <jsp:include page="footerbar.jsp"></jsp:include>
 
-	<script
-		src="../resources/semiadmin_css/assets/js/feather-icons/feather.min.js"></script>
-	<script
-		src="../resources/semiadmin_css/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script src="../resources/semiadmin_css/assets/js/app.js"></script>
-
-	<script
-		src="../resources/semiadmin_css/assets/vendors/simple-datatables/simple-datatables.js"></script>
-	<script src="../resources/semiadmin_css/assets/js/vendors.js"></script>
-
-	<script src="../resources/semiadmin_css/assets/js/main.js"></script>
 	
 	<!-- calendar script -->
 	<script>
@@ -280,6 +214,9 @@
 			});
 			calendar.render();
 		});
+		
+
+		
 	</script>
 
 </body>
