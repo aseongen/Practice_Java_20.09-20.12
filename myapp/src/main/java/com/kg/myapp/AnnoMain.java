@@ -6,10 +6,11 @@ public class AnnoMain {
 		
 		MyContext con = new MyContext();
 		MyData myData = con.getInstance(MyData.class);
-		System.out.println(myData.name);
-		System.out.println(myData.toSay);
-		
-		
+//		System.out.println(myData.name);
+//		System.out.println(myData.toSay);
+
+         System.out.println(myData.obj);
+         System.out.println(myData.obj.data);
 	}
 	
 }

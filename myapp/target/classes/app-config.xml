@@ -2,10 +2,91 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-<!--com.kg.myapp 패키지 하위 모두 객체로 만들어줘  -->
-<context:component-scan base-package="com.kg.myapp"/>
+   <context:component-scan base-package="com.kg.myapp" />
+   <context:component-scan base-package="com.kg.myapp.*" />
+<!--    <aop:config>
+      <aop:pointcut
+         expression="execution(* com.knr.springapp.HelloService.sayHello(..))"
+         id="printTime" />
+      <aop:aspect ref="helloTime">
+         <aop:before pointcut-ref="printTime" method="timeLog" />
+      </aop:aspect>
+   </aop:config>
+   <aop:config>
+      <aop:pointcut
+         expression="execution(* com.knr.springapp.ByeController.bye(..))"
+         id="printBye" />
+         출력하는거는 Controller에서 하기 떄문
+      <aop:aspect ref="byeTime">
+         <aop:after-returning method="timelog"
+            pointcut-ref="printBye" />
+      </aop:aspect>
+   </aop:config> -->
+   
+<!--    <aop:config>
+   <aop:pointcut expression="execution(* com.knr.springapp.HelloService.sayHello(..))" id="printTime"/>
+   return type 상관 없이 method실행
+   <aop:aspect ref = "timeTracer">
+   <aop:around method="trace" pointcut-ref="printTime"/>
+   </aop:aspect>
+   </aop:config> -->
+   
+   <aop:aspectj-autoproxy />
+   
+<!-- <context:property-placeholder location="classpath:database/jdbc.properties"/> -->  	
+ <bean id="propertyConfigurer" class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+   	<constructor-arg ref ="configurationEncryptor"/>
+   	<property name="locations">
+  	 <list>
+   		<value>classpath:/database/jdbc.properties</value>
+   	</list></property></bean>
+   <bean id ="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+   	<property name="config" ref="environmentVariableConfiguration"/>
+   	<property name="password" value="1234"/>
+   </bean>
+   <bean id="environmentVariableConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+   <property name="algorithm" value="PBEWithMD5AndDES"/>
+   <property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD"/>
+   </bean>
 
+   <bean id = "dataSource" class = "org.apache.commons.dbcp2.BasicDataSource">
+   <property name="driverClassName" value="${jdbc.driverClassName}"/>
+   <property name ="url" value="${jdbc.url}"/>
+   <property name="username" value="${jdbc.username}"/>
+   <property name="password" value="${jdbc.password}"/>
+   </bean>
+   <bean id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate">
+   <property name="dataSource" ref="dataSource"/>
+   </bean>
+   
+   <!-- AOP 를 활용해 트랜잭션 걸기 -->
+   <!-- datasource : 연결하는 통로 -> 하단 : Connection Pool-->
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   <property name="dataSource" ref="dataSource"/>
+   </bean>
+   
+   <tx:advice id="txAdvice" transaction-manager="transactionManager">
+   <tx:attributes>
+   <tx:method name="get*" read-only="true"/>
+   <tx:method name="select*" read-only="true"/>
+   <tx:method name="*"/>
+   </tx:attributes>
+   </tx:advice>
+   
+   <aop:config>
+   <aop:pointcut expression="execution(* com..*Service.*teEmp(..))" id="txPointcut"/>
+   <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+   </aop:config>
+   
 </beans>
