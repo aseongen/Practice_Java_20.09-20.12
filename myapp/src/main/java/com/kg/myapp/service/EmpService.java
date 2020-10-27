@@ -30,7 +30,7 @@ public class EmpService implements IEmpService {
 	}
 
 	@Override
-	public int getEmpCount(int deptId) {
+	public int getEmpCount(int deptId) { //매개변수가 있음
 		return empRepository.getEmpCount(deptId);
 	}
 

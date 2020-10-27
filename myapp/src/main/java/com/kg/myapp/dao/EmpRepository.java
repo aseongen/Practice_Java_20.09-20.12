@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.kg.myapp.vo.EmpDetailVO;
 import com.kg.myapp.vo.EmpVO;
 
 @Repository
@@ -102,7 +103,6 @@ public class EmpRepository implements IEmpRepository {
 				emp.getCommissionPct(),emp.getManagerId(),emp.getDepartmentId()
 				);
 	}
-
 	
 	@Override
 	public void updateEmp(EmpVO emp) {
@@ -157,6 +157,49 @@ public class EmpRepository implements IEmpRepository {
 		return jdbcTemplate.queryForList(sql);
 	}
 	
+    public EmpVO getEmpInfoo(int empId) {
+    	String sql="select employee_id, first_name, last_name, email, phone_number,"
+    			+"hire_date, e.job_id, job_title, salary, commission_pct, e.manager_id,"
+    			+"manager_name, e.department_id, department_name"
+    			+"from employees e"
+    			+"join on jobs j "
+    			+"e.job_id=j.job_id"
+    			+"join on departments d"
+    			+"e.department_id=d.department_id"
+    			+"join on"
+    			+"(select employee_id manager_id, first_name||' '||last_name manager_name"
+    			+"from employees"
+    			+"where manager_id in (select distinct manager_id from employees)) m"
+    			+"e.manager_id=m.manager_id"
+    			+"where employee_id=?";
+    	return jdbcTemplate.queryForObject(sql, new RowMapper<EmpDetailVO>() {
 
+			@Override
+			public EmpDetailVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				
+				EmpDetailVO emp = new EmpDetailVO();
+				emp.setEmployeeId(rs.getInt("employee_id"));
+				emp.setFirstName(rs.getString("first_name"));
+				emp.setLastName(rs.getString("Last_name"));
+				emp.setEmail(rs.getString("email"));
+				emp.setPhoneNumber(rs.getString("Phone_number"));
+				emp.setHireDate(rs.getDate("hire_date"));
+				emp.setJoinId(rs.getString("job_id"));
+				emp.setSalary(rs.getDouble("salary"));
+				emp.setCommissionPct(rs.getDouble("commission_pct"));
+				emp.setManagerId(rs.getInt("manager_id"));
+				emp.setDepartmentId(rs.getInt("department_id"));
+				emp.setJobTitle(rs.getString("job_title"));
+				emp.setManagerName(rs.getString("Manager_name"));
+				emp.setDepartmentName(rs.getString("department_name"));
+				return emp;
+			}
+    		
+    		
+    	},empId);
+    			
+    }
+	
+	
    //arrayList 와 list의 차이 -> 
 }
