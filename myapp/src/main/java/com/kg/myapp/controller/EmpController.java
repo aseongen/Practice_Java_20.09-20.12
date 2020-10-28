@@ -54,4 +54,17 @@ public class EmpController {
 		return "emp/view";
 	}
 
+	@GetMapping(value="/emp/countview")
+	public void getEmpListt(int deptId, Model model) {
+		model.addAttribute("empList",empService.getEmpListt(deptId));
+		
+	}
+	
+	@GetMapping(value="/emp/nameList")
+	public void getNameList(String name, Model model) {
+		model.addAttribute("nameList",empService.getNameList(name));
+	}
+	
+	
+
 }

@@ -3,6 +3,7 @@ package com.kg.myapp.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.kg.myapp.vo.EmpDetailVO;
 import com.kg.myapp.vo.EmpVO;
 
 public interface IEmpRepository {
@@ -19,4 +20,6 @@ public interface IEmpRepository {
 	List<Map<String,Object>> getAllJobId();
 	List<Map<String,Object>> getAllManagerId();
 	
+	List <EmpVO> getEmpListt(int deptId);
+	List<EmpVO> getNameList(String name);
 }

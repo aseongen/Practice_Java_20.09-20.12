@@ -87,12 +87,11 @@ public class EmpRepository implements IEmpRepository {
 		return jdbcTemplate.query(sql, new EmpMapper());
 	}
 	
-
-	@Override
-	public EmpVO getEmpInfo(int empId) {
-		String sql = "select count(*) from employees where department_id=?";
-		return jdbcTemplate.queryForObject(sql, new EmpMapper(), empId);
-	}
+	/*
+	 * @Override public EmpVO getEmpInfo(int empId) { String sql =
+	 * "select count(*) from employees where department_id=?"; return
+	 * jdbcTemplate.queryForObject(sql, new EmpMapper(), empId); }
+	 */
 
 	@Override
 	public void insertEmp(EmpVO emp) {
@@ -157,21 +156,25 @@ public class EmpRepository implements IEmpRepository {
 		return jdbcTemplate.queryForList(sql);
 	}
 	
-    public EmpVO getEmpInfoo(int empId) {
-    	String sql="select employee_id, first_name, last_name, email, phone_number,"
-    			+"hire_date, e.job_id, job_title, salary, commission_pct, e.manager_id,"
-    			+"manager_name, e.department_id, department_name"
-    			+"from employees e"
-    			+"join on jobs j "
-    			+"e.job_id=j.job_id"
-    			+"join on departments d"
-    			+"e.department_id=d.department_id"
-    			+"join on"
-    			+"(select employee_id manager_id, first_name||' '||last_name manager_name"
-    			+"from employees"
-    			+"where manager_id in (select distinct manager_id from employees)) m"
-    			+"e.manager_id=m.manager_id"
+	@Override
+    public EmpVO getEmpInfo(int empId) {
+    	String sql="select employee_id, first_name, last_name, email, phone_number, "
+    			+"hire_date, e.job_id, job_title, salary, commission_pct, e.manager_id, "
+    			+"manager_name, e.department_id, department_name "
+    			+"from employees e "
+    			+"left join jobs j "
+    			+"on e.job_id=j.job_id "
+    			+"left join departments d "
+    			+"on e.department_id=d.department_id "
+    			+"left join "
+    			+"(select employee_id manager_id, first_name||' '||last_name manager_name "
+    			+"from employees "
+    			+"where employee_id in (select distinct manager_id from employees)) m "
+    			+"on e.manager_id=m.manager_id "
     			+"where employee_id=?";
+    	
+    	
+    	
     	return jdbcTemplate.queryForObject(sql, new RowMapper<EmpDetailVO>() {
 
 			@Override
@@ -195,11 +198,23 @@ public class EmpRepository implements IEmpRepository {
 				return emp;
 			}
     		
-    		
     	},empId);
     			
     }
+
+	@Override
+	public List<EmpVO> getEmpListt(int deptId) {
+		String sql="select* from employees where department_id=?";
+		return jdbcTemplate.query(sql, empMapper,deptId);
+	}
+
+	@Override
+	public List<EmpVO> getNameList(String name) {
+		String sql="select * from employees where first_name like %?% || last_name like %?%";
+		return jdbcTemplate.query(sql, empMapper, name);
+	}
+
 	
-	
+
    //arrayList 와 list의 차이 -> 
 }

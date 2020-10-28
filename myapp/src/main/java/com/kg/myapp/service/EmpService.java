@@ -80,4 +80,14 @@ public class EmpService implements IEmpService {
 		return empRepository.getAllManagerId();
 	}
 
+	@Override
+	public List<EmpVO> getEmpListt(int deptId) {
+		return empRepository.getEmpListt(deptId);
+	}
+
+	@Override
+	public List<EmpVO> getNameList(String name) {
+		return empRepository.getNameList(name);
+	}
+
 }
