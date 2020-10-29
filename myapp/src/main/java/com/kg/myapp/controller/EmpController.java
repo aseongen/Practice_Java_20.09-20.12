@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kg.myapp.service.IEmpService;
@@ -61,9 +62,32 @@ public class EmpController {
 	}
 	
 	@GetMapping(value="/emp/nameList")
-	public void getNameList(String name, Model model) {
-		model.addAttribute("nameList",empService.getNameList(name));
+	public String getNameList(String keyword, Model model) {
+		keyword ="%" + keyword +"%";
+		model.addAttribute("nameList",empService.getNameList(keyword));
+		return "emp/nameList";
 	}
+	
+	@GetMapping(value="/emp/insert")
+	public void empInsert(Model model) {
+		
+		model.addAttribute("jobList",empService.getAllJobId());
+		model.addAttribute("manList",empService.getAllManagerId());
+		model.addAttribute("deptList",empService.getAllDeptId());
+		model.addAttribute("message","insert");
+		
+	}
+	
+	@PostMapping(value="emp/insert")
+	public String empInsert(EmpDetailVO emp, Model model) {
+		//파라미터의 이름이랑 변수명의 이름과 같아야 한다. 
+		empService.insertEmp(emp);
+		
+		return "redirect:/emp/list";
+		
+	}
+	
+	
 	
 	
 

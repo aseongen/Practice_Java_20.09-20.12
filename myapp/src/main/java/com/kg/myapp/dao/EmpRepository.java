@@ -95,13 +95,14 @@ public class EmpRepository implements IEmpRepository {
 
 	@Override
 	public void insertEmp(EmpVO emp) {
-		String sql= "insert into employees" +"values(?,?,?,?,?,sysdate,?,?,?,?,?)";
+		String sql= "insert into employees" +" values(?,?,?,?,?,sysdate,?,?,?,?,?)";
 		jdbcTemplate.update(sql,emp.getEmployeeId(),
 				emp.getFirstName(),emp.getLastName(),emp.getEmail(),
 				emp.getPhoneNumber(),emp.getJoinId(),emp.getSalary(),
 				emp.getCommissionPct(),emp.getManagerId(),emp.getDepartmentId()
 				);
 	}
+	
 	
 	@Override
 	public void updateEmp(EmpVO emp) {
@@ -140,14 +141,14 @@ public class EmpRepository implements IEmpRepository {
 
 	@Override
 	public List<Map<String, Object>> getAllJobId() {
-		String sql="select job_id as jobId, job_title as jobTitle"
+		String sql="select job_id as joinId, job_title as jobTitle "
 				+"from jobs";
 		return jdbcTemplate.queryForList(sql);
 	}
 
 	@Override
 	public List<Map<String, Object>> getAllManagerId() {
-		String sql="select employee_id as managerId,"
+		String sql="select employee_id as managerId, "
 				+"first_name||' '||last_name as managerName "
 				+"from employees "
 				+"where employee_id in"
@@ -209,9 +210,9 @@ public class EmpRepository implements IEmpRepository {
 	}
 
 	@Override
-	public List<EmpVO> getNameList(String name) {
-		String sql="select * from employees where first_name like %?% || last_name like %?%";
-		return jdbcTemplate.query(sql, empMapper, name);
+	public List<EmpVO> getNameList(String keyword) {
+		String sql="select * from employees where first_name like ? or last_name like ?";
+		return jdbcTemplate.query(sql, empMapper, keyword, keyword);
 	}
 
 	

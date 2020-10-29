@@ -86,8 +86,8 @@ public class EmpService implements IEmpService {
 	}
 
 	@Override
-	public List<EmpVO> getNameList(String name) {
-		return empRepository.getNameList(name);
+	public List<EmpVO> getNameList(String keyword) {
+		return empRepository.getNameList(keyword);
 	}
 
 }

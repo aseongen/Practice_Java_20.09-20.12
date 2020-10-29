@@ -20,6 +20,6 @@ public interface IEmpService {
 	List<Map<String,Object>> getAllManagerId();
 	
 	List <EmpVO> getEmpListt(int deptId);
-	List <EmpVO> getNameList(String name);
+	List <EmpVO> getNameList(String keyword);
 	
 }

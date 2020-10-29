@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,23 +23,29 @@
 			<th>Manager_id</th>
 			<th>Department_id</th>
 		</tr>
-
+		
+		<c:set var="keyword" value="${keyword}" />
 		<c:forEach var="name" items="${nameList}">
 			<tr>
-				<td>${emp.employeeId }</td>
-				<td>${emp.firstName }</td>
-				<td>${emp.lastName }</td>
-				<td>${emp.email }</td>
-				<td>${emp.phoneNumber }</td>
-				<td>${emp.hireDate }</td>
-				<td>${emp.joinId}</td>
-				<td>${emp.salary }</td>
-				<td>${emp.commissionPct }</td>
-				<td>${emp.managerId }</td>
-				<td>${emp.departmentId }</td>
+				<td>${name.employeeId }</td>
+				<td>${name.firstName }</td>
+				<td>${name.lastName }</td>
+				<td>${name.email }</td>
+				<td>${name.phoneNumber }</td>
+				<td>${name.hireDate }</td>
+				<td>${name.joinId}</td>
+				<td>${name.salary }</td>
+				<td>${name.commissionPct }</td>
+				<td>${name.managerId }</td> 
+				<td>${name.departmentId }</td>
 
 			</tr>
 		</c:forEach>
+		
+		<c:if test="${empty nameList }">
+		<h1>검색하신 부서가 없다</h1>
+		</c:if>
+		
 	</table>
 </body>
 </html>
