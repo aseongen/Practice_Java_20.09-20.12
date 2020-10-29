@@ -67,6 +67,8 @@
 		</tr>
 
 	</table>
-
+	
+	<a href="update/${emp.employeeId }">정보수정</a>&nbsp;&nbsp;<a href="">정보삭제</a>
+	
 </body>
 </html>

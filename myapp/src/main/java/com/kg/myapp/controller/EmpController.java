@@ -87,6 +87,16 @@ public class EmpController {
 		
 	}
 	
+	@GetMapping(value="emp/update/{empId}")
+	public String empUpdate(@PathVariable int empId, Model model) {
+		
+		model.addAttribute("emp",empService.getEmpInfo(empId));
+		model.addAttribute("jobList",empService.getAllJobId());
+		model.addAttribute("manList",empService.getAllManagerId());
+		model.addAttribute("deptList",empService.getAllDeptId());
+		model.addAttribute("message","update");
+		return "emp/update";
+	}
 	
 	
 	
